@@ -1,2 +1,4 @@
-pip install pipreqs
-pipreqs /home/project/location
+pydeck
+pandas
+streamlit
+woslite_py_client
