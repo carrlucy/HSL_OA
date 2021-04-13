@@ -18,7 +18,7 @@ dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&f
 response = urllib.request.urlopen(dcurl).read()
 #tree = ET.fromstring(response)
 
-tree = ET.parse('reponse')
+tree = ET.parse('response')
 root = tree.getroot()
 newroot = ET.Element("rdf")
 newroot.insert(0, root)
