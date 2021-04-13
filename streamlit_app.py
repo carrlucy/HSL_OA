@@ -16,5 +16,11 @@ df = pd.read_json(jsonurl)
 
 dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc'
 response = urllib.request.urlopen(dcurl).read()
-tree = ET.fromstring(response)
-st.write(tree)
+#tree = ET.fromstring(response)
+
+tree = ET.parse('reponse')
+root = tree.getroot()
+newroot = ET.Element("rdf")
+newroot.insert(0, root)
+
+st.write(ET.tostring(newroot, pretty_print=True))
