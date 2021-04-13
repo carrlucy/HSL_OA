@@ -20,7 +20,7 @@ tree = ET.fromstring(response)
 
 #tree = ET.parse('response')
 root = tree.getroot()
-newroot = ET.Element("rdf")
-newroot.insert(0, root)
+newroot = ET.Element("RDF")
+#newroot.insert(0, root)
 
-st.write(ET.tostring(newroot, pretty_print=True))
+st.write(newroot)
