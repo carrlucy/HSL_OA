@@ -9,4 +9,4 @@ import json
 #url="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=json"
 df = pd.read_json('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json')
 
-st.write(df)
+st.write(df['result'])
