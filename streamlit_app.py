@@ -5,6 +5,14 @@ import numpy as np
 import json
 import xml.etree.ElementTree as ET
 import urllib.request
+from urllib.request import urlopen
+from xml.etree.ElementTree import parse
+
+var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
+xmldoc = parse(var_url)
+st.write(xmldoc)
+
+
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
