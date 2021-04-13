@@ -6,13 +6,11 @@ import json
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-url="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=json"
-df = pd.read_json(url)
-#df = pd.DataFrame(df['result'].values.tolist())
-print (df.head())
+#url="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=json"
+df = pd.read_json('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=json')
 
 st.write(df)
-print (url)
+
 """
 # Why no data
 """
