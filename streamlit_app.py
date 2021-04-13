@@ -29,7 +29,7 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
 xmldoc = parse(var_url)
 #newroot=xmldoc._setroot('rdf')
-st.write(xmldoc.iterfind('rdf'))
+st.write(xmldoc.findall('rdf'))
 #for item in xmldoc.iterfind('rdf'):
 #  title = item.findtext('dc:title')
 #  st.write(item)
