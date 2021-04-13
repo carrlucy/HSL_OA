@@ -17,7 +17,7 @@ import urllib.request
 dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc'
 response = urllib.request.urlopen(dcurl).read()
 dcElement = ET.fromstring(response) #fromstring returns an element
-dcElementTree = ET.parse('response') #parse returns an element tree
+dcElementTree = ET.parse(response) #parse returns an element tree
 newroot = dcElementTree.getroot()
 st.write(newroot)
 
