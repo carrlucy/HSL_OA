@@ -11,5 +11,5 @@ import urllib.request
 jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
 dcurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc"
 df = pd.read_json(jsonurl)
-df2= pd.read_xml(dcurl)
-st.write(df2)
+#df2= pd.read_xml(dcurl)
+st.write(df)
