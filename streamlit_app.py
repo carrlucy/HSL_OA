@@ -28,11 +28,11 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
 xmldoc = parse(var_url)
-newroot=xmldoc._setroot('rdf')
-
-for item in xmldoc.iterfind('rdf'):
-  title = item.findtext('dc:title')
-  st.write(item)
+#newroot=xmldoc._setroot('rdf')
+st.write(xmldoc.iter('rdf'))
+#for item in xmldoc.iterfind('rdf'):
+#  title = item.findtext('dc:title')
+#  st.write(item)
 
 
 
