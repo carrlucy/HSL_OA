@@ -17,12 +17,11 @@ import urllib.request
 dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc'
 response = urllib.request.urlopen(dcurl).read()
 dcElement = ET.fromstring(response) #fromstring returns an element
-dcElementTree = ET.parse(response) #parse returns an element tree
-newroot = dcElementTree.getroot()
-st.write(newroot)
+#dcElementTree = ET.parse(response) #parse returns an element tree
+#newroot = dcElementTree.getroot()
 
+#for contributor in dcElement.findall('dc:contributor'):
+#  rank = country.find('rank').text
+#  name = country.get('name')
+st.write(dcElement.tag)
 
-#newroot = ET.Element("RDF")
-#newroot.insert(0, root)
-
-#st.write(newroot)
