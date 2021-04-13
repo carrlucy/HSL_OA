@@ -10,6 +10,8 @@ url="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&forma
 df = pd.read_json(url)
 #df = pd.DataFrame(df['result'].values.tolist())
 print (df.head())
+
+st.write(df)
 print (url)
 """
 # Why no data
