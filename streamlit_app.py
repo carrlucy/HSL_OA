@@ -8,9 +8,6 @@ import urllib.request
 from urllib.request import urlopen
 from xml.etree.ElementTree import parse
 
-var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
-xmldoc = parse(var_url)
-st.write(xmldoc)
 
 
 """
@@ -28,10 +25,11 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #dcElementTree = ET.parse(response) #parse returns an element tree
 #newroot = dcElementTree.getroot()
 
-#for contributor in dcElement.findall('dc:contributor'):
-#  rank = country.find('rank').text
-#  name = country.get('name')
-for a in dcElement[0]:
-    st.write(a.tag)
+#https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
+var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
+xmldoc = parse(var_url)
+newroot=xmldoc._setroot(rdf)
+st.write(newroot)
+
 
 
