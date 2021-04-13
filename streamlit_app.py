@@ -9,7 +9,12 @@ import urllib.request
 # Welcome to The HSL Library Open Data Dashboard
 """
 jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
-dcurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc"
+
 df = pd.read_json(jsonurl)
-#df2= pd.read_xml(dcurl)
-st.write(df)
+#st.write(df)
+
+
+dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc'
+response = urllib.request.urlopen(dcurl).read()
+tree = ET.fromstring(response)
+st.write(tree)
