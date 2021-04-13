@@ -6,7 +6,8 @@ import json
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-url="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
-df = pd.read_json(url,orient='columns')
-
-st.write(df['result'])
+jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
+dcurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc"
+df = pd.read_json(jsonurl)
+df2= pd.read_xml(dcurl)
+st.write(df2)
