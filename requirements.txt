@@ -1,3 +1,4 @@
 pydeck
 pandas
 streamlit
+numpy
