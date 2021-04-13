@@ -9,4 +9,6 @@ import json
 
 df = pd.read_json('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=json')
 df = pd.DataFrame(df['result'].values.tolist())
+df['TimeStamp'] = pd.to_datetime(df['TimeStamp'])
+df = df.set_index('TimeStamp')
 print (df.head())
