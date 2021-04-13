@@ -23,5 +23,7 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #for contributor in dcElement.findall('dc:contributor'):
 #  rank = country.find('rank').text
 #  name = country.get('name')
-st.write(dcElement.tag)
+for a in dcElement[0]:
+    st.write(a.tag)
+
 
