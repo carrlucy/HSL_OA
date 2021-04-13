@@ -8,17 +8,17 @@ import urllib.request
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
-
-df = pd.read_json(jsonurl)
+#these lines were used to test the json response thata worked fine however did not return affiliation data
+#jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
+#df = pd.read_json(jsonurl)
 #st.write(df)
 
-
-dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=malaria&format=dc'
+#here's the current working model in dublin core 
+dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc'
 response = urllib.request.urlopen(dcurl).read()
-#tree = ET.fromstring(response)
-tree = ET.parse('response')
-newroot = tree.getroot()
+dcElement = ET.fromstring(response) #fromstring returns an element
+dcElementTree = ET.parse('response') #parse returns an element tree
+newroot = dcElementTree.getroot()
 st.write(newroot)
 
 
