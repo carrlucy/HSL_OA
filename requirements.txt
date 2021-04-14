@@ -2,3 +2,4 @@ pydeck
 pandas
 streamlit
 numpy
+extruct
