@@ -36,8 +36,11 @@ st.write(xmldoc)
 #  st.write(item)
 
 #trying with rdflib here... 
-rdfData=rdflib.graph()
-n3=rdfData.parse(dcurl, format='application/rdf+xml')
+#rdfData=rdflib.graph()
+#n3=rdfData.parse(dcurl, format='application/rdf+xml')
 
-st.write(n3)
+from zeep import Client
 
+client = Client('https://www.ebi.ac.uk/europepmc/webservices/soap?wsdl')
+client.service.ping()
+st.write(client)
