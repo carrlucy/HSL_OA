@@ -2,4 +2,4 @@ pydeck
 pandas
 streamlit
 numpy
-extruct
+rdflib
