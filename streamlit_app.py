@@ -35,5 +35,9 @@ st.write(xmldoc)
 #  title = item.findtext('dc:title')
 #  st.write(item)
 
+#trying with rdflib here... 
+rdfData=rdflib.graph()
+n3=rdfData.parse(dcurl, format='application/rdf+xml')
 
+st.write(n3)
 
