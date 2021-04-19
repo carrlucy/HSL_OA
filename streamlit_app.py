@@ -29,7 +29,7 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
 xmldoc = parse(var_url)
-xml_element=xmldoc.getroot('resultList')
+xml_element=xmldoc.getroot()
 st.write(xml_element)
 
 #https://stackoverflow.com/questions/44392243/how-to-fetch-all-the-child-nodes-of-an-xml-using-python
