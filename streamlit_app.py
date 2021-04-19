@@ -3,8 +3,7 @@ import pandas as pd
 import streamlit as st
 import numpy as np
 import json
-#import xml.etree.ElementTree as ET
-import xml.etree.cElementTree as et
+import xml.etree.ElementTree as ET
 import urllib.request
 import rdflib
 from urllib.request import urlopen
@@ -21,15 +20,15 @@ from xml.etree.ElementTree import parse
 #st.write(df)
 
 #here's the current working model in dublin core 
-dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml'
-response = urllib.request.urlopen(dcurl).read()
-dcElement = ET.fromstring(response) #fromstring returns an element
+#dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml'
+#response = urllib.request.urlopen(dcurl).read()
+#dcElement = ET.fromstring(response) #fromstring returns an element
 #dcElementTree = ET.parse(response) #parse returns an element tree
 #newroot = dcElementTree.getroot()
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
-xmldoc = parse(var_url)
+#var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
+#xmldoc = parse(var_url)
 #xml_element=xmldoc.getroot()
 #st.write(xml_element)
 
@@ -40,10 +39,10 @@ xmldoc = parse(var_url)
     #st.write("hello")
     #for x2 in root1.iter('result'):
        # root2=ET.Element('xmldoc')
-        #st.write(x2.pmid)
+        #st.write(x2.)
 
-tree=et.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
-    # need to include result type= core - above only gets us lite metadata not including affiliaiton- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
+tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
+    # need to include result type= core - above only gets us lite metadata not including affiliation- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
 
 
 DOI=[]
