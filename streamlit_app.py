@@ -58,7 +58,7 @@ for x in xmldoc.iter('resultWrapper'):
     root1=x
     for result in root1.iter('resultList'):
         root2=ET.Element('root')
-        print(result)
+        st.write(result)
 
 
 
