@@ -20,17 +20,17 @@ from xml.etree.ElementTree import parse
 #st.write(df)
 
 #here's the current working model in dublin core 
-dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc'
+dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml'
 response = urllib.request.urlopen(dcurl).read()
 dcElement = ET.fromstring(response) #fromstring returns an element
 #dcElementTree = ET.parse(response) #parse returns an element tree
 #newroot = dcElementTree.getroot()
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
+var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
 xmldoc = parse(var_url)
-#newroot=xmldoc._setroot('resultList')
-st.write(xmldoc)
+xml_element=xmldoc.getroot('resultList')
+st.write(xml_element)
 
 #https://stackoverflow.com/questions/44392243/how-to-fetch-all-the-child-nodes-of-an-xml-using-python
 #for child in root:
