@@ -37,9 +37,9 @@ for x in xmldoc.iter('resultList'):
     root1=ET.Element('xmldoc')
     root1=x
     st.write("hello")
-    for result in root1.iter('result'):
-        root2=ET.Element('xmldoc')
-        st.write(root2.pmid)
+    for x2 in root1.iter('result'):
+       # root2=ET.Element('xmldoc')
+        st.write(x2.pmid)
 
 
 #for x in root.iter('region'):
