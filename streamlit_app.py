@@ -32,6 +32,14 @@ xmldoc = parse(var_url)
 #xml_element=xmldoc.getroot()
 #st.write(xml_element)
 
+#https://towardsdatascience.com/converting-multi-layered-xml-files-to-dataframes-in-python-using-xmltree-a13f9b043b48
+for x in xmldoc.iter('resultList'):
+    root1=ET.Element('xmldoc')
+    root1=x
+    st.write("hello")
+    for result in root1.iter('result'):
+        root2=ET.Element('xmldoc')
+        st.write(root2.pmid)
 
 
 #for x in root.iter('region'):
@@ -52,18 +60,7 @@ xmldoc = parse(var_url)
 #                    root5=gas
 
 
-#https://towardsdatascience.com/converting-multi-layered-xml-files-to-dataframes-in-python-using-xmltree-a13f9b043b48
-for x in xmldoc.iter('resultList'):
-    root1=ET.Element('xmldoc')
-    root1=x
-    st.write("hello")
-    for result in root1.iter('result'):
-        root2=ET.Element('xmldoc')
-        st.write(result.id)
-
-
-
-
+        
 #trying with rdflib here... 
 #rdfData=rdflib.graph()
 #n3=rdfData.parse(dcurl, format='application/rdf+xml')
