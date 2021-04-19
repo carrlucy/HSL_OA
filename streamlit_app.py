@@ -31,7 +31,9 @@ var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query
 xmldoc = parse(var_url)
 xml_element=xmldoc.getroot()
 st.write(xml_element)
-
+#https://stackoverflow.com/questions/31043997/whats-difference-between-findall-and-iterfind-of-xml-etree-elementtree
+ourlist=xml_element.findall("./isOpenAccess")
+st.write(ourlist)
 #https://stackoverflow.com/questions/44392243/how-to-fetch-all-the-child-nodes-of-an-xml-using-python
 #for child in root:
 #  print({x.tag for x in root.findall(child.tag+"/*")})
