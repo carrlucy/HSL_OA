@@ -52,7 +52,7 @@ xmldoc = parse(var_url)
 #                    root5=gas
 
 
-
+#https://towardsdatascience.com/converting-multi-layered-xml-files-to-dataframes-in-python-using-xmltree-a13f9b043b48
 for x in xmldoc.iter('resultList'):
     root1=ET.Element('xmldoc')
     root1=x
@@ -60,6 +60,9 @@ for x in xmldoc.iter('resultList'):
     for result in root1.iter('result'):
         root2=ET.Element('xmldoc')
         st.write(result)
+             for result in root1.iter('result'):
+                root2=ET.Element('xmldoc')
+                st.write(xmldoc.result['isOpenAccess'])
 
 
 
