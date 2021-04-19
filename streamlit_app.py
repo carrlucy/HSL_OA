@@ -59,10 +59,7 @@ for x in xmldoc.iter('resultList'):
     st.write("hello")
     for result in root1.iter('result'):
         root2=ET.Element('xmldoc')
-        st.write(result)
-             for result in root1.iter('result'):
-                root2=ET.Element('xmldoc')
-                st.write(xmldoc.result['isOpenAccess'])
+        st.write(xmldoc.result['isOpenAccess'])
 
 
 
