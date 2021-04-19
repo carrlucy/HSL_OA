@@ -29,23 +29,39 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
 xmldoc = parse(var_url)
-xml_element=xmldoc.getroot()
-st.write(xml_element)
-#https://stackoverflow.com/questions/31043997/whats-difference-between-findall-and-iterfind-of-xml-etree-elementtree
-ourlist=xml_element.findall("./isOpenAccess")
-st.write(ourlist)
-#https://stackoverflow.com/questions/44392243/how-to-fetch-all-the-child-nodes-of-an-xml-using-python
-#for child in root:
-#  print({x.tag for x in root.findall(child.tag+"/*")})
+#xml_element=xmldoc.getroot()
+#st.write(xml_element)
 
-#https://www.tutorialspoint.com/How-to-get-specific-nodes-in-xml-file-in-Python
 
-#for node in xmldoc.findall("//isOpenAccess['=y']"):
-#    for type in node.getchildren():
-#        st.write(type.text)
-#for item in xmldoc.iterfind('rdf'):
-#  title = item.findtext('dc:title')
-#  st.write(item)
+
+#for x in root.iter('region'):
+#    root1=et.Element('root')
+#    root1=x
+#    for supply in root1.iter('AgSupplySector'):
+#        root2=et.Element('root')
+#        print(supply)
+#        root2=(supply)
+#        for tech in root2.iter('AgProductionTechnology'):
+#            root3 = et.Element('root')
+#            root3=(tech)
+#            for yr in root3.iter('period'):
+#                root4 = et.Element('root')
+#                root4=yr
+#                for gas in root4.iter('Non-CO2'):
+#                    root5 = et.Element('root')
+#                    root5=gas
+
+
+
+for x in xmldoc.iter('resultWrapper'):
+    root1=ET.Element('xmldoc')
+    root1=x
+    for result in root1.iter('resultList'):
+        root2=ET.Element('root')
+        print(result)
+
+
+
 
 #trying with rdflib here... 
 #rdfData=rdflib.graph()
