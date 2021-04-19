@@ -29,8 +29,18 @@ dcElement = ET.fromstring(response) #fromstring returns an element
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=dc')
 xmldoc = parse(var_url)
-#newroot=xmldoc._setroot('rdf')
-st.write(xmldoc.settings)
+#newroot=xmldoc._setroot('resultList')
+st.write(xmldoc)
+
+#https://stackoverflow.com/questions/44392243/how-to-fetch-all-the-child-nodes-of-an-xml-using-python
+#for child in root:
+#  print({x.tag for x in root.findall(child.tag+"/*")})
+
+#https://www.tutorialspoint.com/How-to-get-specific-nodes-in-xml-file-in-Python
+
+#for node in xmldoc.findall("//isOpenAccess['=y']"):
+#    for type in node.getchildren():
+#        st.write(type.text)
 #for item in xmldoc.iterfind('rdf'):
 #  title = item.findtext('dc:title')
 #  st.write(item)
@@ -38,9 +48,9 @@ st.write(xmldoc.settings)
 #trying with rdflib here... 
 #rdfData=rdflib.graph()
 #n3=rdfData.parse(dcurl, format='application/rdf+xml')
-import zeep
-from zeep import Client, Settings
-settings = Settings(strict=False, xml_huge_tree=True)
-client = Client('https://www.ebi.ac.uk/europepmc/webservices/soap?wsdl', settings=settings)
+#import zeep
+#from zeep import Client, Settings
+#settings = Settings(strict=False, xml_huge_tree=True)
+#client = Client('https://www.ebi.ac.uk/europepmc/webservices/soap?wsdl', settings=settings)
 
-st.write(client.settings)
+#st.write(client.settings)
