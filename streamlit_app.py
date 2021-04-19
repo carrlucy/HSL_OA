@@ -42,7 +42,7 @@ xmldoc = parse(var_url)
        # root2=ET.Element('xmldoc')
         #st.write(x2.pmid)
 
-tree=et.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml)
+tree=et.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
     # need to include result type= core - above only gets us lite metadata not including affiliaiton- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
 
 
