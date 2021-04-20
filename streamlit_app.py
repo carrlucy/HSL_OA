@@ -76,7 +76,7 @@ st.write(root)
                         
                 
 # Anson, is this helpful? https://www.kaggle.com/chrisfilo/using-europepmc-api-to-access-academic-papers
-# This is also talks about using the API with Python, starting on slide 23
+# This is also talks about using the API with Python, starting on slide 23 https://www.ebi.ac.uk/training/online/courses/embl-ebi-programmatically/wp-content/uploads/sites/128/2020/11/Webinar-slides-Europe-PMC-programmatically_2020.pdf
 
 
 
