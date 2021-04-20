@@ -44,7 +44,7 @@ from xml.etree.ElementTree import parse
 #tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
 tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core')
 root = tree.getroot()
-st.write(root.tag, root.attrib)
+st.write(root)
     
 
     
