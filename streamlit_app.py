@@ -36,7 +36,7 @@ for a in root[4]:
         st.write(b.text)
     for c in root1.iter('authorString'):
         st.write(c.text)
-     for d in root1.iter('firstPublicationDate'):
+    for d in root1.iter('firstPublicationDate'):
         st.write(d.text)
     
     
