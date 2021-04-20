@@ -41,35 +41,57 @@ from xml.etree.ElementTree import parse
        # root2=ET.Element('xmldoc')
         #st.write(x2.)
 
-tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
+#tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
     # need to include result type= core - above only gets us lite metadata not including affiliation- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
 
 
-DOI=[]
-AuthorFullName=[]
-AuthorAffiliation=[]
+#DOI=[]
+#AuthorFullName=[]
+#AuthorAffiliation=[]
 
-for x in tree.iter('result'):
-    root1=tree.Element('root')
-    root1=x
-    for writer in root1.iter('author'):
-        root2 = et.Element('root')
-        st.write(writer)
-        root2=(writer)
-        for authorInstitution in root2.iter('authorAffiliation'):
-            root3 = et.Element('root')
-            st.write(authorInstitution)
-            root3=authorInstitution
-            for authorInstitution in root4.iter('authorAffiliation'):
-                DOI.append(result.attrib['doi'])
-                AuthorFullName.append(writer.attrib['fullName'])
-                AuthorAffiliation.append(authorInstitution.attrib['affiliation'])
-df = pd.DataFrame({'DOI': 
-DOI,'AuthorFullName':AuthorFullName,'AuthorAffiliation':AuthorAffiliation })
+#for x in tree.iter('result'):
+#    root1=tree.Element('root')
+#    root1=x
+#    for writer in root1.iter('author'):
+#        root2 = et.Element('root')
+#        st.write(writer)
+#        root2=(writer)
+#        for authorInstitution in root2.iter('authorAffiliation'):
+#            root3 = et.Element('root')
+#           st.write(authorInstitution)
+#            root3=authorInstitution
+#            for authorInstitution in root4.iter('authorAffiliation'):
+#                DOI.append(result.attrib['doi'])
+#                AuthorFullName.append(writer.attrib['fullName'])
+#                AuthorAffiliation.append(authorInstitution.attrib['affiliation'])
+#df = pd.DataFrame({'DOI': 
+#DOI,'AuthorFullName':AuthorFullName,'AuthorAffiliation':AuthorAffiliation })
                         
                 
+# Anson, is this helpful? https://www.kaggle.com/chrisfilo/using-europepmc-api-to-access-academic-papers
+import requests
+results = []
+base_url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml'
+url = base_url
+while True:
+    r = requests.get(url=url)
+    data = r.xml()
+    
+    if len(data['resultList']['result']) == 0:
+        break
+        
+    results += data['resultList']['result']
+    print(data['nextCursorMark'])
+    url = base_url + "&cursorMark=" + data['nextCursorMark']
+len(results)
+results[0]
+st.write(results)
 
-         
+import pandas as pd
+df = pd.io.xml.xml_normalize(results).replace({"N": False, "Y": True}).set_index('id')
+df.head()
+
+
 
 
 #for x in root.iter('region'):
