@@ -32,7 +32,7 @@ for x in root[4]:
     root1=x
     for y in root1.iter('doi'):
         root2=ET.Element('root')
-        st.write(y)
+        st.write(y.text)
 
 #for x in xmldoc.iter('resultList'):
     #root1=ET.Element('xmldoc')
