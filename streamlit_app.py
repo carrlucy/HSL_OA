@@ -24,8 +24,15 @@ root = xmlTree.getroot()
 
 st.write(root[4][0][0].text)    
 #https://towardsdatascience.com/converting-multi-layered-xml-files-to-dataframes-in-python-using-xmltree-a13f9b043b48
-for a in root[4]:
-    st.write(a.text)
+#for a in root[4]:
+#    st.write(a.text)
+    
+for x in root[4]:
+    root1=ET.Element('result')
+    root1=x
+    for y in root1.iter('doi'):
+        root2=et.Element('root')
+        st.write(y)
 
 #for x in xmldoc.iter('resultList'):
     #root1=ET.Element('xmldoc')
