@@ -49,8 +49,8 @@ DOI=[]
 AuthorFullName=[]
 AuthorAffiliation=[]
 
-for x in root.iter('result'):
-    root1=et.Element('root')
+for x in tree.iter('result'):
+    root1=tree.Element('root')
     root1=x
     for writer in root1.iter('author'):
         root2 = et.Element('root')
