@@ -48,11 +48,6 @@ root = xmlTree.getroot()
 st.write(root)
     
 
-    
-    
-    # need to include result type= core - above only gets us lite metadata not including affiliation- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
-
-
 #DOI=[]
 #AuthorFullName=[]
 #AuthorAffiliation=[]
@@ -76,7 +71,6 @@ st.write(root)
 #DOI,'AuthorFullName':AuthorFullName,'AuthorAffiliation':AuthorAffiliation })
                         
                 
-# Anson, is this helpful? https://www.kaggle.com/chrisfilo/using-europepmc-api-to-access-academic-papers
 # This is also talks about using the API with Python, starting on slide 23 https://www.ebi.ac.uk/training/online/courses/embl-ebi-programmatically/wp-content/uploads/sites/128/2020/11/Webinar-slides-Europe-PMC-programmatically_2020.pdf
 
 
