@@ -38,7 +38,7 @@ for a in root[4]:
         st.write(c.text)
     for d in root1.iter('firstPublicationDate'):
         st.write(d.text)
-    for e in root1[1].iter('title'):
+    for e in root1[0].iter('title'):
         st.write(e.text)
     
     
