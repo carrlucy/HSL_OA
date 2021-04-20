@@ -14,25 +14,19 @@ from xml.etree.ElementTree import parse
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-#these lines were used to test the json response thata worked fine however did not return affiliation data
-#jsonurl="https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=virginia&format=json"
-#df = pd.read_json(jsonurl)
-#st.write(df)
 
-#here's the current working model in dublin core 
-#dcurl = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml'
-#response = urllib.request.urlopen(dcurl).read()
-#dcElement = ET.fromstring(response) #fromstring returns an element
-#dcElementTree = ET.parse(response) #parse returns an element tree
-#newroot = dcElementTree.getroot()
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-#var_url = urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&format=xml')
-#xmldoc = parse(var_url)
-#xml_element=xmldoc.getroot()
-#st.write(xml_element)
+restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=university%20of%20virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
+xmlTree=ET.parse(restQuery)
+root = xmlTree.getroot()
 
+
+    
 #https://towardsdatascience.com/converting-multi-layered-xml-files-to-dataframes-in-python-using-xmltree-a13f9b043b48
+
+st.write(root[0].tag)
+
 #for x in xmldoc.iter('resultList'):
     #root1=ET.Element('xmldoc')
    #root1=x
@@ -40,13 +34,6 @@ from xml.etree.ElementTree import parse
     #for x2 in root1.iter('result'):
        # root2=ET.Element('xmldoc')
         #st.write(x2.)
-
-#tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
-restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=university%20of%20virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
-xmlTree=ET.parse(restQuery)
-root = xmlTree.getroot()
-st.write(root)
-    
 
 #DOI=[]
 #AuthorFullName=[]
