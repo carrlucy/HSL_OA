@@ -33,7 +33,7 @@ for a in root[4]:
     root1=a
     for b in root1.iter('isOpenAccess'):
         root2=ET.Element('root')
-        st.write(b.tag "contains" b.text)
+        st.write(b.tag)
     for c in root1.iter('authorString'):
         st.write(c.text)
     for d in root1.iter('firstPublicationDate'):
