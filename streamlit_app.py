@@ -42,8 +42,9 @@ from xml.etree.ElementTree import parse
         #st.write(x2.)
 
 #tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&format=xml')
-tree=ET.parse('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=university%20of%20virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
-root = tree.getroot()
+restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=university%20of%20virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
+xmlTree=ET.parse(restQuery)
+root = xmlTree.getroot()
 st.write(root)
     
 
