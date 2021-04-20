@@ -28,7 +28,7 @@ root = xmlTree.getroot()
 #    st.write(a.text)
 
 
-loopCount=root[1]/1000
+#loopCount=root[1]/1000
 
 for x in root[4]:
     root1=ET.Element('result')
