@@ -49,8 +49,8 @@ st.write("tag=%s, attrib=%s" % (root.tag, root.attrib))
 for child in root:
     st.write(child.tag, child.attrib)
         if child.tag == "pmid":
-            for step_child in child:
-                st.write(step_child.tag)
+        for step_child in child:
+            st.write(step_child.tag)
 
     # need to include result type= core - above only gets us lite metadata not including affiliation- https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=25&format=xml
 
