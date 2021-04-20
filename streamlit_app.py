@@ -31,7 +31,7 @@ for x in root[4]:
     root1=ET.Element('result')
     root1=x
     for y in root1.iter('doi'):
-        root2=et.Element('root')
+        root2=ET.Element('root')
         st.write(y)
 
 #for x in xmldoc.iter('resultList'):
