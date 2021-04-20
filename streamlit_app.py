@@ -14,10 +14,10 @@ from xml.etree.ElementTree import parse
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-searchThis=st.sidebar.text_input('data')
+searchThis=st.sidebar.text_input('Query')
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query='searchThis'&resultType=core&cursorMark=*&pageSize=35&format=xml')
+restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=', searchThis,'&resultType=core&cursorMark=*&pageSize=35&format=xml')
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
 
