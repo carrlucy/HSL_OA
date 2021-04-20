@@ -30,7 +30,7 @@ st.write(root[4][0][0].text)
 for x in root[4]:
     root1=ET.Element('result')
     root1=x
-    for y in root1.iter('doi'):
+    for y in root1.iter('isOpenAccess'):
         root2=ET.Element('root')
         st.write(y.text)
 
