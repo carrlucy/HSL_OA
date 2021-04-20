@@ -14,7 +14,7 @@ from xml.etree.ElementTree import parse
 """
 # Welcome to The HSL Library Open Data Dashboard
 """
-searchThis=st.text_input()
+searchThis=st.text_input('data')
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=',searchThis,'&resultType=core&cursorMark=*&pageSize=35&format=xml')
