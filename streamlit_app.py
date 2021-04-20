@@ -87,9 +87,6 @@ len(results)
 results[0]
 st.write(results)
 
-import pandas as pd
-df = pd.io.xml.xml_normalize(results).replace({"N": False, "Y": True}).set_index('id')
-df.head()
 
 
 
