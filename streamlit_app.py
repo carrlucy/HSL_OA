@@ -28,16 +28,18 @@ root = xmlTree.getroot()
 #    st.write(a.text)
 
 
-#loopCount=root[1]/1000
-
-for x in root[4]:
+for a in root[4]:
     root1=ET.Element('result')
-    root1=x
-    for y in root1.iter('isOpenAccess'):
+    root1=a
+    for b in root1.iter('isOpenAccess'):
         root2=ET.Element('root')
-        st.write(y.text)
-    for z in root1.iter('authorString'):
-        st.write(z.text)
+        st.write(b.text)
+    for c in root1.iter('authorString'):
+        st.write(c.text)
+     for d in root1.iter('firstPublicationDate'):
+        st.write(d.text)
+    
+    
 
 
 #for x in xmldoc.iter('resultList'):
