@@ -35,11 +35,11 @@ for a in root[4]:
         root2=ET.Element('root')
         st.write(b.tag, "contains", b.text)
     for c in root1.iter('authorString'):
-        st.write(c.text)
+        st.write(c.tag, "contains", c.text)
     for d in root1.iter('firstPublicationDate'):
-        st.write(d.text)
+        st.write(d.tag, "contains", d.text)
     for e in root1.iter('title'):
-        st.write(e.text)
+        st.write(e.tag, "contains", e.text)
     
     
 
