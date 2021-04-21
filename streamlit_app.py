@@ -19,7 +19,7 @@ searchThis=st.sidebar.text_input('Query')
 buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 restQuery=urlopen(buildQuery)
-st.write(restQuery)
+#st.write(restQuery)
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
 
