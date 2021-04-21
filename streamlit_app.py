@@ -29,6 +29,13 @@ root = xmlTree.getroot()
 #for a in root[4]:
 #    st.write(a.text)
 
+openAccess=[]
+authors=[]
+date=[]
+title=[]
+iso=[]
+doi=[]
+
 
 for a in root[4]:
     root1=ET.Element('result')
@@ -46,10 +53,15 @@ for a in root[4]:
         st.write(f.tag, "contains", f.text)  
     for g in root1.iter('doi'):
         st.write(g.tag, "contains", g.text)
+    openAccess.append(b.text)
+    authors.append(c.text)
+    date.append(d.text)
+    title.append(e.text)
+    iso.append(f.text)
+    doi.append(g.text)
     
-    
-    
-
+df = pd.DataFrame({'openAccess': openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi})
+st.write(df)
 
 #for x in xmldoc.iter('resultList'):
     #root1=ET.Element('xmldoc')
