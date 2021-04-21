@@ -3,4 +3,4 @@ pandas
 streamlit
 numpy
 rdflib
-zeep
+altair
