@@ -17,7 +17,7 @@ from xml.etree.ElementTree import parse
 searchThis=st.sidebar.text_input('Query')
 test1=Virginia
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=', test1,'&resultType=core&cursorMark=*&pageSize=35&format=xml')
+restQuery=urlopen('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=test&resultType=core&cursorMark=*&pageSize=35&format=xml')
 st.write(restQuery)
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
