@@ -41,24 +41,25 @@ for a in root[4]:
     root1=ET.Element('result')
     root1=a
     for b in root1.iter('isOpenAccess'):
-        root2=ET.Element('root')
-#        st.write(b.tag, "contains", b.text)
+        openAccess.append(b.text)
+        #st.write(b.tag, "contains", b.text)
     for c in root1.iter('authorString'):
-#        st.write(c.tag, "contains", c.text)
+        authors.append(c.text)
+        #st.write(c.tag, "contains", c.text)
     for d in root1.iter('firstPublicationDate'):
-#        st.write(d.tag, "contains", d.text)
+        date.append(d.text)
+        #st.write(d.tag, "contains", d.text)
     for e in root1.iter('title'):
-#        st.write(e.tag, "contains", e.text)
+        title.append(e.text)
+        #st.write(e.tag, "contains", e.text)
     for f in root1.iter('ISOAbbreviation'):
-#        st.write(f.tag, "contains", f.text)  
+        #iso.append(f.text)
+        st.write(f.tag, "contains", f.text)  
     for g in root1.iter('doi'):
-#        st.write(g.tag, "contains", g.text)
-    openAccess.append(b.text)
-    authors.append(c.text)
-    date.append(d.text)
-    title.append(e.text)
-    iso.append(f.text)
-    doi.append(g.text)
+        doi.append(g.text)
+        #st.write(g.tag, "contains", g.text)
+    
+    
     
 df = pd.DataFrame({'openAccess': openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi})
 st.write(df)
