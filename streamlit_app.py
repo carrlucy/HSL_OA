@@ -76,3 +76,4 @@ openFilter = sorted(df['openAccess'].drop_duplicates()) # select all of the tree
 open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
 st.write(df2.sort_values(by='date'))
+st.write(df2.describe())
