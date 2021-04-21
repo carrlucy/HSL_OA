@@ -14,13 +14,13 @@ from xml.etree.ElementTree import parse
 """
 # EuropePMC Open Data Dashboard
 """
-#searchThis=st.sidebar.text_input('Query')
+searchThis=st.sidebar.text_input("Query EuropePMC", Virginia)
 
-#buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
-builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml')
+buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
+#builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml')
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-restQuery=urlopen(builtQuery)
+restQuery=urlopen(buildQuery)
 #st.write(restQuery)
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
@@ -77,3 +77,8 @@ open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the stre
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
 st.write(df2.sort_values(by='date'))
 st.write(df2.describe())
+
+chart_data = pd.DataFrame(
+np.random.randn(20, 3),
+columns=['a', 'b', 'c'])
+st.line_chart(chart_data)
