@@ -42,6 +42,11 @@ for a in root[4]:
         st.write(d.tag, "contains", d.text)
     for e in root1.iter('title'):
         st.write(e.tag, "contains", e.text)
+    for f in root1.iter('ISOAbbreviation'):
+        st.write(f.tag, "contains", f.text)  
+    for g in root1.iter('doi'):
+        st.write(g.tag, "contains", g.text)
+    
     
     
 
