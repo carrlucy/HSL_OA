@@ -17,7 +17,7 @@ from xml.etree.ElementTree import parse
 #searchThis=st.sidebar.text_input('Query')
 
 #buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
-builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
+builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml')
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
 restQuery=urlopen(builtQuery)
