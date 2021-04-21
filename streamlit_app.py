@@ -14,7 +14,7 @@ from xml.etree.ElementTree import parse
 """
 # EuropePMC Open Data Dashboard
 """
-searchThis=st.sidebar.text_input("Query EuropePMC", Virginia)
+searchThis=st.sidebar.text_input('Query EuropePMC', 'Virginia')
 
 buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
 #builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml')
