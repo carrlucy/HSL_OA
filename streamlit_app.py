@@ -79,7 +79,7 @@ df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered
 st.write(df2.sort_values(by='date'))
 st.write(df2.describe())
 
-df3=df2.groupby(df2.date.dt.year)
+#df3=df2.groupby(df2.date.dt.year)
 
 df4 = pd.DataFrame({
     'name': ['brian', 'dominik', 'patricia'],
