@@ -78,7 +78,20 @@ df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe for our 
 st.write(df2.sort_values(by='date'))
 st.write(df2.describe())
 
-chart_data = pd.DataFrame(
-np.random.randn(20, 3),
-columns=['a', 'b', 'c'])
-st.line_chart(chart_data)
+df3=df2.groupby(df2.date.dt.year)
+
+df4 = pd.DataFrame({
+    'name': ['brian', 'dominik', 'patricia'],
+    'age': [20, 30, 40],
+    'salary': [100, 200, 300]
+})
+
+a = alt.Chart(df4).mark_area(opacity=1).encode(
+    x='name', y='age')
+
+b = alt.Chart(df).mark_area(opacity=0.6).encode(
+    x='name', y='salary')
+
+c = alt.layer(a, b)
+
+st.altair_chart(c, use_container_width=True)
