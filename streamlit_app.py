@@ -87,11 +87,9 @@ df4 = pd.DataFrame({
     'salary': [100, 200, 300]
 })
 
-a = alt.Chart(df4).mark_area(opacity=1).encode(
-    x='name', y='age')
+a = alt.Chart(df4).mark_area(opacity=1).encode(x='name', y='age')
 
-b = alt.Chart(df).mark_area(opacity=0.6).encode(
-    x='name', y='salary')
+b = alt.Chart(df).mark_area(opacity=0.6).encode(x='name', y='salary')
 
 c = alt.layer(a, b)
 
