@@ -6,6 +6,7 @@ import json
 import xml.etree.ElementTree as ET
 import urllib.request
 import rdflib
+import altair as alt
 from urllib.request import urlopen
 from xml.etree.ElementTree import parse
 
