@@ -71,7 +71,7 @@ for a in root[4]:
     
 
 df = pd.DataFrame({'openAccess': openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi})
-
+df['date'] = pd.to_datetime(df['date'])
 
 openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
 open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
@@ -80,9 +80,10 @@ st.write(df2.sort_values(by='date'))
 st.write(df2.describe())
 
 
-dfChart = df2[['openAccess', 'date']].copy()
-dfChart['Year'] = dfChart['date'].apply(lambda x: "%d" % (x.year))
+#dfChart = df2[['openAccess', 'date']].copy()
+#dfChart['Year'] = dfChart['date'].apply(lambda x: "%d" % (x.year))
 
+dfChart=df.groupby(df['date'].dt.year)['openAccess'].agg)
 st.write(dfChart)
 
 #a = alt.Chart(dfChart).mark_area(opacity=1).encode(x='Year', y='openAccess')
