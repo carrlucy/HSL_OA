@@ -44,17 +44,22 @@ for a in root[4]:
     root1=a
     for b in root1.iter('isOpenAccess'):
         root2=ET.Element('root')
-        st.write(b.tag, "contains", b.text)
+        #st.write(b.tag, "contains", b.text)
     for c in root1.iter('authorString'):
-        st.write(c.tag, "contains", c.text)
+        root3=ET.Element('root2')
+        #st.write(c.tag, "contains", c.text)
     for d in root1.iter('firstPublicationDate'):
-        st.write(d.tag, "contains", d.text)
+        root4=ET.Element('root3')
+        #st.write(d.tag, "contains", d.text)
     for e in root1.iter('title'):
-        st.write(e.tag, "contains", e.text)
+        root5=ET.Element('root4')
+        #st.write(e.tag, "contains", e.text)
     for f in root1.iter('ISOAbbreviation'):
-        st.write(f.tag, "contains", f.text)  
+        root6=ET.Element('root5')
+        #st.write(f.tag, "contains", f.text)  
     for g in root1.iter('doi'):
-        st.write(g.tag, "contains", g.text)
+        root7=ET.Element('root6')
+        #st.write(g.tag, "contains", g.text)
     openAccess.append(b.text)
     authors.append(c.text)
     date.append(d.text)
