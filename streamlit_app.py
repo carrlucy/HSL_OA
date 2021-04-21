@@ -53,8 +53,8 @@ for a in root[4]:
         title.append(e.text)
         #st.write(e.tag, "contains", e.text)
     for f in root1.iter('ISOAbbreviation'):
-        #iso.append(f.text)
-        st.write(f.tag, "contains", f.text)  
+        iso.append(f.text)
+        #st.write(f.tag, "contains", f.text)  
     for g in root1.iter('doi'):
         doi.append(g.text)
         #st.write(g.tag, "contains", g.text)
