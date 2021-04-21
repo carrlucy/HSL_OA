@@ -16,9 +16,11 @@ from xml.etree.ElementTree import parse
 """
 searchThis=st.sidebar.text_input('Query')
 
-buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
+#buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
+builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=35&format=xml')
+
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-restQuery=urlopen(buildQuery)
+restQuery=urlopen(builtQuery)
 #st.write(restQuery)
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
@@ -59,6 +61,13 @@ for a in root[4]:
     title.append(e.text)
     iso.append(f.text)
     doi.append(g.text)
+
     
+
 df = pd.DataFrame({'openAccess': openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi})
-st.write(df)
+
+openFilter = sorted(df['openAccess'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
+open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
+
+st.write(df2)
