@@ -84,7 +84,7 @@ st.write(df2.describe())
 #dfChart['Year'] = dfChart['date'].apply(lambda x: "%d" % (x.year))
 df['year'] =  pd.to_datetime(df['date'], format='%Y')
 
-dfChart=df.groupby(['year'])['openAccess'].count().reset_index()
+dfChart=df.groupby(['year'].dt.year)['openAccess'].count().reset_index()
 
 st.write(dfChart)
 
