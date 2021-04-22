@@ -71,7 +71,7 @@ for a in root[4]:
     
 
 df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'Date':date,'doi':doi,'OpenAccess': openAccess,})
-df['date'] = pd.to_datetime(df['date'])
+df['Date'] = pd.to_datetime(df['Date'])
 
 #df = pd.DataFrame({'openAccess':openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi,'})
 #df['date'] = pd.to_datetime(df['date'])
