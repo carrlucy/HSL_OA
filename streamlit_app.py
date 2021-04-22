@@ -55,7 +55,7 @@ for a in root[4]:
     for d in root1.iter('firstPublicationDate'):
         root4=ET.Element('root3')
         #st.write(d.tag, "contains", d.text)
-    for e in root1.iter('title'):
+    for e in root1.iter('"title"'):
         root5=ET.Element('root4')
         #st.write(e.tag, "contains", e.text)
     for f in root1.iter('ISOAbbreviation'):
