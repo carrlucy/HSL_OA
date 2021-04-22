@@ -90,7 +90,7 @@ df3 = df[['yearDate','openAccess','DOI']].copy()
 #dfChart=df3.groupby(['yearDate'],['openAccess'])['doi'].count.reset_index()
 
 
-st.write(df3.info())
+st.write(df3)
 #st.write(dfChart.describe())
 
 #valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='year', y='openAccess'))
