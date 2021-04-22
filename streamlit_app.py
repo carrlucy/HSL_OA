@@ -85,7 +85,7 @@ st.write(df2.sort_values(by='date'))
 
 
 df['year']=df['date'].dt.to_period('Y')
-df['yearDate'] = pd.to_datetime(df['year']).dt.date
+df['yearDate'] = df['year'].data.to_timestamp()
 df3 = df[['yearDate', 'openAccess']].copy()
 
 #dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
