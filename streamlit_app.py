@@ -86,7 +86,7 @@ openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access
 open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
 st.write(df2.sort_values(by='date'))
-st.write(df2.describe())
+#st.write(df2.describe())
 
 
 #dfChart = df[['openAccess', 'date']].copy()
