@@ -13,7 +13,7 @@ from xml.etree.ElementTree import parse
 
 
 """
-# EuropePMC Open Data Dashboard
+# Europe PMC Open Data Dashboard
 """
 #searchThis=st.sidebar.text_input('Query EuropePMC', 'Virginia')
 
@@ -70,7 +70,7 @@ for a in root[4]:
 
     
 
-df = pd.DataFrame({'openAccess': openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi})
+df = pd.DataFrame({authors':authors,'date':date,'title':title,'iso':iso,'doi':doi'openAccess': openAccess,'})
 df['date'] = pd.to_datetime(df['date'])
 
 openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
