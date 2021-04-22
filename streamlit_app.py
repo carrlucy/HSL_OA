@@ -20,8 +20,8 @@ from xml.etree.ElementTree import parse
 
 #buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
 #builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml') #previous query
-builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=100&format=xml') #updated query with page count = 100 and UVA as AFF
-#builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22%2C%20PUB_YEAR:[2017 TO 2020]&resultType==core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 1000, Pub Year = 2017-2020, and UVA as AFF
+#builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=100&format=xml') #updated query with page count = 100 and UVA as AFF
+builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22%2C%20P%20%&FIRST_PDATE%3A%5B2017-01-01%20TO%202020-12-31%5D%29&resultType==core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 1000, Pub Year = 2017-2020, and UVA as AFF
 
 
 
