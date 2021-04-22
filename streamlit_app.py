@@ -36,57 +36,17 @@ root = xmlTree.getroot()
 #for a in root[4]:
 #    st.write(a.text)
 
-#openAccess=[]
-#authors=[]
-#date=[]
-#title=[]
-#iso=[]
-#doi=[]
-
-#for a in root[4]:
-#    root1=ET.Element('result')
-#    root1=a
-#    for b in root1.iter('isOpenAccess'):
-#        root2=ET.Element('root')
-#        #st.write(b.tag, "contains", b.text)
-#    for c in root1.iter('authorString'):
-#        root3=ET.Element('root2')
-#        #st.write(c.tag, "contains", c.text)
-#    for d in root1.iter('firstPublicationDate'):
-#        root4=ET.Element('root3')
-#        #st.write(d.tag, "contains", d.text)
-#    for e in root1.iter('title'):
-#        root5=ET.Element('root4')
-#        #st.write(e.tag, "contains", e.text)
-#    for f in root1.iter('ISOAbbreviation'):
-#        root6=ET.Element('root5')
-#        #st.write(f.tag, "contains", f.text)  
-#   for g in root1.iter('doi'):
-#        root7=ET.Element('root6')
-#        #st.write(g.tag, "contains", g.text)
-#    openAccess.append(b.text)
-#    authors.append(c.text)
-#    date.append(d.text)
-#    title.append(e.text)
-#    iso.append(f.text)
-#    doi.append(g.text)
-
-    
-
-#df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess,})
-#df['date'] = pd.to_datetime(df['date'])
-
-title=[]
+openAccess=[]
 authors=[]
 date=[]
-openAccess=[]
+title=[]
 iso=[]
 doi=[]
 
 for a in root[4]:
     root1=ET.Element('result')
     root1=a
-    for b in root1.iter('title'):
+    for b in root1.iter('isOpenAccess'):
         root2=ET.Element('root')
         #st.write(b.tag, "contains", b.text)
     for c in root1.iter('authorString'):
@@ -95,35 +55,23 @@ for a in root[4]:
     for d in root1.iter('firstPublicationDate'):
         root4=ET.Element('root3')
         #st.write(d.tag, "contains", d.text)
-    for e in root1.iter('isOpenAccess'):
+    for e in root1.iter('title'):
         root5=ET.Element('root4')
         #st.write(e.tag, "contains", e.text)
-    for f in root1.iter('ISOAbbreviation'):
+   for f in root1.iter('ISOAbbreviation'):
         root6=ET.Element('root5')
         #st.write(f.tag, "contains", f.text)  
-    for g in root1.iter('doi'):
+   for g in root1.iter('doi'):
         root7=ET.Element('root6')
         #st.write(g.tag, "contains", g.text)
-    title.append(b.text)
+    openAccess.append(b.text)
     authors.append(c.text)
     date.append(d.text)
-    openAccess.append(e.text)
+    title.append(e.text)
     iso.append(f.text)
     doi.append(g.text)
 
     
-
-df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess,})
-df['date'] = pd.to_datetime(df['date'])
-
-
-
-
-
-
-
-
-
 openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
 open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
