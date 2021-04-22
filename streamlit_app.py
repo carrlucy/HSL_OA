@@ -94,13 +94,13 @@ df3 = df[['yearDate','openAccess','uid']].copy()
 dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
 
 
-st.write(dfChart)
+#st.write(dfChart)
 #st.write(dfChart.describe())
 
-#valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='year', y='openAccess'))
+valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='yearDate', y='uid'))
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-#valLayer = alt.layer(valChart)
+valLayer = alt.layer(valChart)
 
-#st.altair_chart(valLayer, use_container_width=True)
+st.altair_chart(valLayer, use_container_width=True)
