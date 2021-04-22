@@ -16,11 +16,13 @@ from xml.etree.ElementTree import parse
 # Europe PMC Open Data Dashboard
 """
 #searchThis=st.sidebar.text_input('Query EuropePMC', 'Virginia')
+#https://europepmc.org/searchsyntax Europe PMC search syntax reference
 
 #buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
 #builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml') #previous query
 builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 100 and UVA as AFF
 #builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22%2C%20PUB_YEAR:[2017 TO 2020]&resultType==core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 1000, Pub Year = 2017-2020, and UVA as AFF
+
 
 
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
