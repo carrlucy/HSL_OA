@@ -99,6 +99,6 @@ df3 = df[['yearDate','openAccess']].copy()
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-valLayer = alt.Chart(df).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')
+valLayer = alt.Chart(df3).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')
 
 st.altair_chart(valLayer, use_container_width=True)
