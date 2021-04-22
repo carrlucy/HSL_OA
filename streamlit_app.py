@@ -10,8 +10,6 @@ import altair as alt
 from urllib.request import urlopen
 from xml.etree.ElementTree import parse
 
-
-
 """
 # Europe PMC Open Data Dashboard
 """
