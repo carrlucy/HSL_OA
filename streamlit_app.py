@@ -89,7 +89,7 @@ dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
 
 #st.write(dfChart.describe())
 
-valChart = alt.Chart(dfChart).mark_area(opacity=1).encode(x='year', y='openAccess')
+valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='year', y='openAccess'))
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
