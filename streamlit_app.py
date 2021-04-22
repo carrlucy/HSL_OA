@@ -96,8 +96,8 @@ st.write(df2.describe())
 dfChart=df.groupby(df['date'].dt.to_period('Y'))['openAccess'].count().reset_index()
 #dfChart=df.groupby(['year'].dt.year)['openAccess'].count().reset_index()
 
-st.write(dfChart)
-
+#st.write(dfChart)
+st.write(dfChart.describe())
 
 #a = alt.Chart(dfChart).mark_area(opacity=1).encode(x='Year', y='openAccess')
 
