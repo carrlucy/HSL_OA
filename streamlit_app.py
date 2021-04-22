@@ -44,7 +44,6 @@ title=[]
 iso=[]
 doi=[]
 
-
 for a in root[4]:
     root1=ET.Element('result')
     root1=a
@@ -78,22 +77,15 @@ for a in root[4]:
 df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess,})
 df['date'] = pd.to_datetime(df['date'])
 
-#df = pd.DataFrame({'openAccess':openAccess,'authors':authors,'date':date,'title':title,'iso':iso,'doi':doi,'})
-#df['date'] = pd.to_datetime(df['date'])
-
 
 openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
 open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
 st.write(df2.sort_values(by='date'))
-#st.write(df2.describe())
 
 
-#dfChart = df[['openAccess', 'date']].copy()
-#dfChart['Year'] = dfChart['date'].apply(lambda x: "%d" % (x.year))
-#df['year'] =  pd.to_datetime(df['date'], format='%Y')
 df['year']=df['date'].dt.to_period('Y')
-dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
+#dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
 
 #st.write(dfChart.describe())
 
