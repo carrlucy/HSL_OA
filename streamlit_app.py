@@ -84,11 +84,11 @@ st.write(df2.sort_values(by='date'))
 
 
 df['year']=df['date'].dt.to_period('Y')
-df['yearDate'] = df['year'].data.to_timestamp()
-df3 = df[['yearDate', 'openAccess']].copy()
+#df['yearDate'] = df['year'].data.to_timestamp()
+#df3 = df[['yearDate', 'openAccess']].copy()
 
 #dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
-st.write(df3)
+st.write(df)
 #st.write(dfChart.describe())
 
 #valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='year', y='openAccess'))
