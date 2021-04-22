@@ -42,7 +42,6 @@ date=[]
 title=[]
 iso=[]
 doi=[]
-uid=[]
 
 for a in root[4]:
     root1=ET.Element('result')
@@ -65,19 +64,15 @@ for a in root[4]:
     for g in root1.iter('doi'):
         root7=ET.Element('root6')
         #st.write(g.tag, "contains", g.text)
-    for h in root1.iter('id'):
-        root8=ET.Element('root7')
-        #st.write(g.tag, "contains", g.text)
     openAccess.append(b.text)
     authors.append(c.text)
     date.append(d.text)
     title.append(e.text)
     iso.append(f.text)
     doi.append(g.text)
-    uid.append(h.text)
     
 
-df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess,'uid': uid})
+df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
 df['date'] = pd.to_datetime(df['date'])
 
 
@@ -89,7 +84,7 @@ st.write(df2.sort_values(by='date'))
 
 df['year']=df['date'].dt.to_period('Y')
 df['yearDate'] = df['year'].astype(str)
-df3 = df[['yearDate','openAccess','uid']].copy()
+df3 = df[['yearDate','openAccess']].copy()
 
 #dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
 
@@ -104,6 +99,6 @@ df3 = df[['yearDate','openAccess','uid']].copy()
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-valLayer = alt.Chart(df3).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')
+valLayer = alt.Chart(df).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')
 
 st.altair_chart(valLayer, use_container_width=True)
