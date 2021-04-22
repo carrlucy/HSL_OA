@@ -85,14 +85,14 @@ st.write(df2.sort_values(by='date'))
 
 
 df['year']=df['date'].dt.to_period('Y')
-#dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
+dfChart=df.groupby(df['year']['openAccess'].count().reset_index()
 
 #st.write(dfChart.describe())
 
-#valChart = alt.Chart(dfChart).mark_area(opacity=1).encode(x='year', y='openAccess')
+valChart = alt.Chart(dfChart).mark_area(opacity=1).encode(x='year', y='openAccess')
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-#valLayer = alt.layer(valChart)
+valLayer = alt.layer(valChart)
 
-#st.altair_chart(valLayer, use_container_width=True)
+st.altair_chart(valLayer, use_container_width=True)
