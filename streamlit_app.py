@@ -87,10 +87,10 @@ df['year']=df['date'].dt.to_period('Y')
 df['yearDate'] = df['year'].astype(str)
 df3 = df[['yearDate','openAccess','DOI']].copy()
 
-#dfChart=df3.groupby(['yearDate'],['openAccess'])['doi'].count.reset_index()
+dfChart=df3.groupby(['yearDate'],['openAccess'])['DOI'].count.reset_index()
 
 
-st.write(df3)
+st.write(dfChart)
 #st.write(dfChart.describe())
 
 #valChart = alt.Chart((dfChart).mark_area(opacity=1).encode(x='year', y='openAccess'))
