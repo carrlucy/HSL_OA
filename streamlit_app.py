@@ -86,11 +86,12 @@ st.write(df2.sort_values(by='date'))
 st.write(df2.describe())
 
 
-#dfChart = df2[['openAccess', 'date']].copy()
+#dfChart = df[['openAccess', 'date']].copy()
 #dfChart['Year'] = dfChart['date'].apply(lambda x: "%d" % (x.year))
-df['year'] =  pd.to_datetime(df['date'], format='%Y')
+#df['year'] =  pd.to_datetime(df['date'], format='%Y')
 
-dfChart=df.groupby(['year'].dt.year)['openAccess'].count().reset_index()
+dfChart=df.groupby(df['date'].dt.to_period('Y'))['openAccess'].count()
+#dfChart=df.groupby(['year'].dt.year)['openAccess'].count().reset_index()
 
 st.write(dfChart)
 
