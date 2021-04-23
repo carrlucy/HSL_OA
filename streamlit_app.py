@@ -73,8 +73,7 @@ for a in root[4]:
     doi.append(g.text)
        
 
-#df = pd.DataFrame({'Authors':authors,'Article_Title':title,'Journal_Title':iso,'date':date,'DOI':doi,'openAccess':openAccess})
-df = pd.DataFrame({'Authors':authors,'Journal_Title':iso,'date':date,'DOI':doi,'openAccess':openAccess})
+df = pd.DataFrame({'Authors':authors,'Article_Title':title,'Journal_Title':iso,'date':date,'DOI':doi,'openAccess':openAccess})
 df['date'] = pd.to_datetime(df['date'])
 
 
