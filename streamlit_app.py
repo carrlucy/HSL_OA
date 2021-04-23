@@ -41,7 +41,7 @@ title=[]
 iso=[]
 doi=[]
 
-st.write(root[2])
+st.write(root[2].text)
 
 
 for a in root[4]:
