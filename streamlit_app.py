@@ -12,8 +12,7 @@ from xml.etree.ElementTree import parse
 
 """
 # Europe PMC Open Data Dashboard
-# 
-# 
+
 """
 #searchThis=st.sidebar.text_input('Query EuropePMC', 'Virginia')
 #https://europepmc.org/searchsyntax Europe PMC search syntax reference
@@ -80,7 +79,7 @@ df['date'] = pd.to_datetime(df['date'])
 
 
 openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
-open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+#open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
 st.write(df2.sort_values(by='date'))
 
