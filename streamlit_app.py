@@ -41,7 +41,7 @@ authors=[]
 date=[]
 title=[]
 iso=[]
-url=[]
+doi=[]
 
 
 for a in root[4]:
@@ -62,7 +62,7 @@ for a in root[4]:
     for f in root1.iter('ISOAbbreviation'):
         root6=ET.Element('root5')
         #st.write(f.tag, "contains", f.text)  
-    for g in root1.iter('url'):
+    for g in root1.iter('doi'):
         root7=ET.Element('root6')
         #st.write(g.tag, "contains", g.text)
     openAccess.append(b.text)
@@ -74,7 +74,7 @@ for a in root[4]:
        
 
 
-df = pd.DataFrame({'Authors':authors,'Article_Title':title,'Journal_Title':iso,'date':date,'URL':url,'openAccess':openAccess})
+df = pd.DataFrame({'Authors':authors,'Article_Title':title,'Journal_Title':iso,'date':date,'DOI':doi,'openAccess':openAccess})
 df['date'] = pd.to_datetime(df['date'])
 
 
