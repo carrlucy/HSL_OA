@@ -41,7 +41,7 @@ authors=[]
 date=[]
 title=[]
 iso=[]
-doi=[]
+url=[]
 
 
 for a in root[4]:
