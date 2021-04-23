@@ -18,12 +18,13 @@ from xml.etree.ElementTree import parse
 
 #buildQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=' + searchThis + '&resultType=core&cursorMark=*&pageSize=35&format=xml')
 #builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=University%20of%20Virginia&resultType=core&cursorMark=*&pageSize=200&format=xml') #previous query
-builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 100 and UVA as AFF
+#builtQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AFF%3A%22University%20of%20Virginia%22&resultType=core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 100 and UVA as AFF
 #builtQuery=('https://europepmc.org/search?query=%28AFF%3A%22University%20of%20Virginia%22%29%20AND%20%28FIRST_PDATE%3A%5B2017-01-01%20TO%202020-12-31%5D%29%20AND%20%28HAS_FT%3AY%29&resultType==core&cursorMark=*&pageSize=1000&format=xml') #updated query with page count = 1000, Pub Year = 2017-2020, and UVA as AFF
 
-
+nextQuery=('https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=university%20of%20virginia%20health%20system&resultType=core&nextCursorMark=AoIIQOpj3ig0MzQ0NjE5NQ==&pageSize=500&format=xml
+')
 #https://www.foxinfotech.in/2019/04/python-how-to-read-xml-from-url.html
-restQuery=urlopen(builtQuery)
+restQuery=urlopen(nextQuery)
 #st.write(restQuery)
 xmlTree=ET.parse(restQuery)
 root = xmlTree.getroot()
