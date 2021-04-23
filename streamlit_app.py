@@ -44,7 +44,7 @@ doi=[]
 
 nextPage=root[2].text
 
-if (root[1].text).astype(int)<1000:
+if int(root[1].text)<1000:
     for a in root[4]:
         root1=ET.Element('result')
         root1=a
