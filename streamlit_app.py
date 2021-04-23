@@ -41,6 +41,9 @@ title=[]
 iso=[]
 doi=[]
 
+st.write(root[2])
+
+
 for a in root[4]:
     root1=ET.Element('result')
     root1=a
