@@ -70,7 +70,7 @@ for a in root[4]:
     date.append(d.text)
     title.append(e.text)
     iso.append(f.text)
-    url.append(g.text)
+    doi.append(g.text)
        
 
 
