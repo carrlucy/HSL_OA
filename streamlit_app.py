@@ -36,7 +36,8 @@ while cr_mrk != nxt_mrk:
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
         #print(dct)
 
-df=pd.DataFrame.from_dict(rslt)        
+#df=pd.DataFrame.from_dict(rslt)        
+st.write(dct)
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
 #df['date'] = pd.to_datetime(df['date'])
@@ -48,9 +49,9 @@ df=pd.DataFrame.from_dict(rslt)
 #st.write(df2.sort_values(by='date'))
 
 
-df['year']=df['date'].dt.to_period('Y')
-df['yearDate'] = df['year'].astype(str)
-df3 = df[['yearDate','oa']].copy()
+#df['year']=df['date'].dt.to_period('Y')
+#df['yearDate'] = df['year'].astype(str)
+#df3 = df[['yearDate','oa']].copy()
 
 #dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
 
@@ -65,6 +66,6 @@ df3 = df[['yearDate','oa']].copy()
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-valLayer = alt.Chart(df3).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')
+#valLayer = alt.Chart(df3).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')#
 
-st.altair_chart(valLayer, use_container_width=True)
+#st.altair_chart(valLayer, use_container_width=True)
