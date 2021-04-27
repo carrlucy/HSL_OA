@@ -21,7 +21,7 @@ nxt_mrk = '*' #next cursor mark
 
 while cr_mrk != nxt_mrk:              
     url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
-    query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2017-01-01 TO 2020-12-31]) AND (HAS_FT:Y)'
+    query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-01-01 TO 2020-12-31]) AND (HAS_FT:Y)'
     params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
     response = requests.get(url,params)
     rjson = response.json()
