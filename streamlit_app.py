@@ -2,7 +2,6 @@ import math
 import streamlit as st
 import numpy as np
 import json
-
 import rdflib
 import altair as alt
 from urllib.request import urlopen
@@ -25,7 +24,7 @@ while cr_mrk != nxt_mrk:
     params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
     response = requests.get(url,params)
     rjson = response.json()
-    print(rjson)
+    #print(rjson)
     cr_mrk = urlparse.unquote(rjson['request']['cursorMark'])
     nxt_mrk = urlparse.unquote(rjson['nextCursorMark'])
     for rslt in rjson['resultList']['result']:
@@ -35,9 +34,9 @@ while cr_mrk != nxt_mrk:
         dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
         dct['iso'].append(rslt['isoabbreviation']) if 'isoabbreviation' in rslt.keys() else dct['iso'].append(0)
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
-        print(dct)
+        #print(dct)
 
-df=pd.DataFrame.from_dict(dct)        
+df=pd.DataFrame.from_dict(rslt)        
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
 #df['date'] = pd.to_datetime(df['date'])
