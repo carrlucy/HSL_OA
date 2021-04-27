@@ -42,15 +42,15 @@ df=pd.DataFrame.from_dict(rslt)
 #df['date'] = pd.to_datetime(df['date'])
 
 
-openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
-open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
-df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
-st.write(df2.sort_values(by='date'))
+#openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
+#open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+#df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
+#st.write(df2.sort_values(by='date'))
 
 
 df['year']=df['date'].dt.to_period('Y')
 df['yearDate'] = df['year'].astype(str)
-df3 = df[['yearDate','openAccess']].copy()
+df3 = df[['yearDate','oa']].copy()
 
 #dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
 
