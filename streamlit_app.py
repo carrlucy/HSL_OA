@@ -56,10 +56,12 @@ dfdata=bigask()
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
+citations = st.sidebar.slider('Number of citations', 0, 999, (0, 999), 0)
+dfdata = dfdata[dfdata['cited'] >= citations] 
+
+dfdata
 st.write(dfdata)
         
-#df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
-#df['date'] = pd.to_datetime(df['date'])
 
 
 #openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
@@ -68,22 +70,7 @@ st.write(dfdata)
 #st.write(df2.sort_values(by='date'))
 
 
-#df['year']=df['date'].dt.to_period('Y')
-#df['yearDate'] = df['year'].astype(str)
-#df3 = df[['year','oa']].copy()
 
-#dfChart=df3.groupby(['year','oa'])['id'].count()
-
-
-#st.write(dfChart)
-#st.write(dfChart.describe())
-
-
-
-
-#valChart = alt.Chart((dfChart).mark_bar(opacity=1).encode(x='year', y='id'))
-
-##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
 valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa')#
 
