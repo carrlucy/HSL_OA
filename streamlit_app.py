@@ -5,7 +5,7 @@ import json
 import rdflib
 import altair as alt
 from urllib.request import urlopen
-from xml.etree.ElementTree import parse
+#from xml.etree.ElementTree import parse
 import urllib
 import urllib.parse as urlparse
 import requests
@@ -38,9 +38,9 @@ while cr_mrk != nxt_mrk:
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
 
         #print(dct)
-
+df=pd.DataFrame.from_dict(dct, orient='columns')
 #df=pd.DataFrame.from_dict(rslt)        
-st.write(dct)
+st.write(df)
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
 #df['date'] = pd.to_datetime(df['date'])
