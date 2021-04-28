@@ -53,7 +53,7 @@ st.sidebar.subheader("Select Option")
 choice = st.sidebar.selectbox("Full Text", menu)
 
 dfdata=bigask()
-dfdata= dfdata[dfdata['oa'] = choice] 
+dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
 st.write(dfdata)
