@@ -25,7 +25,7 @@ fulltext_list
 #menu = ["Y", "N"]
 #st.sidebar.subheader("Select Option")
 #choice = st.sidebar.selectbox("Full Text", menu)
-choice="Y"
+choice=Y
 #@st.cache(persist= True)
 #def bigask (choice):
 while cr_mrk != nxt_mrk:              
