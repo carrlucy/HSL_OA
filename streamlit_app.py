@@ -29,7 +29,7 @@ fulltext_list
 #@st.cache(persist= True)
 #def bigask (choice):
 while cr_mrk != nxt_mrk:              
-    choice=Y
+    choice="Y"
     url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
     query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-12-01 TO 2020-12-31]) AND (HAS_FT:' + choice +')'
     params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
