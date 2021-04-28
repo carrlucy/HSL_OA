@@ -14,7 +14,7 @@ import pandas as pd
 
 
 dct = {}
-for col in ['oa','author','date','title','iso','doi']:
+for col in ['oa','author','year','title','iso','doi']:
     dct[col] = []
 
 cr_mrk= '' #current cursor mark
@@ -32,7 +32,7 @@ while cr_mrk != nxt_mrk:
     for rslt in rjson['resultList']['result']:
         dct['oa'].append(rslt['isOpenAccess']) if 'oa' in rslt.keys() else dct['oa'].append(0)
         dct['author'].append(rslt['authorString']) if 'authorString' in rslt.keys() else dct['author'].append(0)
-        dct['date'].append(rslt['firstPublicationDate']) if 'firstPublicationDate' in rslt.keys() else dct['date'].append(0)
+        dct['year'].append(rslt['pubYear']) if 'pubYear' in rslt.keys() else dct['year'].append(0)
         dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
         dct['iso'].append(rslt['isoabbreviation']) if 'isoabbreviation' in rslt.keys() else dct['iso'].append(0)
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
@@ -45,7 +45,7 @@ df=pd.DataFrame.from_dict(dct, orient='columns')
 st.write(df)
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
-df['date'] = pd.to_datetime(df['date'])
+#df['date'] = pd.to_datetime(df['date'])
 
 
 #openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
@@ -54,11 +54,11 @@ df['date'] = pd.to_datetime(df['date'])
 #st.write(df2.sort_values(by='date'))
 
 
-df['year']=df['date'].dt.to_period('Y')
-df['yearDate'] = df['year'].astype(str)
-df3 = df[['yearDate','oa']].copy()
+#df['year']=df['date'].dt.to_period('Y')
+#df['yearDate'] = df['year'].astype(str)
+df3 = df[['year','oa']].copy()
 
-dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
+dfChart=df3.groupby(['year','oa'])['uid'].count()
 
 
 #st.write(dfChart)
@@ -67,10 +67,10 @@ dfChart=df3.groupby(['yearDate','openAccess'])['uid'].count()
 
 
 
-valChart = alt.Chart((dfChart).mark_bar(opacity=1).encode(x='yearDate', y='uid'))
+valChart = alt.Chart((dfChart).mark_bar(opacity=1).encode(x='year', y='uid'))
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-valLayer = alt.Chart(df3).mark_bar().encode(x='yearDate',y='count(openAccess)',color='openAccess')#
+valLayer = alt.Chart(df3).mark_bar().encode(x='year',y='count(oa)',color='oa')#
 
 st.altair_chart(valLayer, use_container_width=True)
