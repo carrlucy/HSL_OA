@@ -22,7 +22,7 @@ nxt_mrk = '*' #next cursor mark
 
 while cr_mrk != nxt_mrk:              
     url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
-    query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2015-01-01 TO 2020-12-31]) AND (HAS_FT:Y)'
+    query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-06-01 TO 2020-12-31]) AND (HAS_FT:Y)'
     params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
     response = requests.get(url,params)
     rjson = response.json()
@@ -44,7 +44,7 @@ while cr_mrk != nxt_mrk:
 df=pd.DataFrame.from_dict(dct, orient='columns')
 #df=pd.DataFrame.from_dict(rslt)        
 
-#st.write(df)
+st.write(df)
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
 #df['date'] = pd.to_datetime(df['date'])
