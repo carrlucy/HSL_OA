@@ -38,7 +38,7 @@ while cr_mrk != nxt_mrk:
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
 
         #print(dct)
-@st.cache
+#@st.cache
 df=pd.DataFrame.from_dict(dct, orient='columns')
 #df=pd.DataFrame.from_dict(rslt)        
 
