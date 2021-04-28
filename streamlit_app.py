@@ -10,6 +10,8 @@ import urllib
 import urllib.parse as urlparse
 import requests
 import pandas as pd
+@st.cache()
+
 
 dct = {}
 for col in ['oa','author','date','title','iso','doi']:
@@ -17,7 +19,7 @@ for col in ['oa','author','date','title','iso','doi']:
 
 cr_mrk= '' #current cursor mark
 nxt_mrk = '*' #next cursor mark
-@st.cache(persist= True)
+
 while cr_mrk != nxt_mrk:              
     url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
     query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-01-01 TO 2020-12-31]) AND (HAS_FT:Y)'
