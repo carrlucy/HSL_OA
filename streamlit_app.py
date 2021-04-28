@@ -21,7 +21,7 @@ menu = ["Y", "N"]
 st.sidebar.subheader("Select Option")
 choice = st.sidebar.selectbox("Full Text", menu)
 
-@st.cache(persist= True)
+@st.cache()
 def bigask (fulltext):
     dct = {}
     for col in ['oa','author','year','title','iso','doi','id','cited']:
