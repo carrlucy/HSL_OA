@@ -10,7 +10,7 @@ import urllib
 import urllib.parse as urlparse
 import requests
 import pandas as pd
-@st.cache()
+@st.cache
 
 
 dct = {}
