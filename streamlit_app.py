@@ -17,12 +17,9 @@ import pandas as pd
 
 #fulltext_list
 
-menu = ["Y", "N"]
-st.sidebar.subheader("Select Option")
-choice = st.sidebar.selectbox("Full Text", menu)
 
-#@st.cache()
-def bigask (fulltext):
+@st.cache()
+def bigask ():
     dct = {}
     for col in ['oa','author','year','title','doi','id','cited']:
         dct[col] = []
@@ -31,7 +28,7 @@ def bigask (fulltext):
     nxt_mrk = '*' #next cursor mark
     while cr_mrk != nxt_mrk:              
         url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
-        query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-12-01 TO 2020-12-31]) AND (HAS_FT:'+fulltext+')'
+        query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-10-01 TO 2020-12-31])'
         params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
         response = requests.get(url,params)
         rjson = response.json()
@@ -50,8 +47,13 @@ def bigask (fulltext):
         #print(dct)
     return df
 
-dfdata=bigask(choice)
 
+menu = ["Y", "N"]
+st.sidebar.subheader("Select Option")
+choice = st.sidebar.selectbox("Full Text", menu)
+
+dfdata=bigask()
+dfdata= dfdata[dfdata['oa'] = choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
 st.write(dfdata)
