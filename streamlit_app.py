@@ -20,7 +20,7 @@ for col in ['oa','author','year','title','iso','doi','id','cited']:
 cr_mrk= '' #current cursor mark
 nxt_mrk = '*' #next cursor mark
 
-fulltext_list
+#fulltext_list
 
 #menu = ["Y", "N"]
 #st.sidebar.subheader("Select Option")
