@@ -45,7 +45,7 @@ df=pd.DataFrame.from_dict(dct, orient='columns')
 st.write(df)
         
 #df = pd.DataFrame({'Authors':authors,'ArticleTitle':title,'JournalTitle':iso,'date':date,'DOI':doi,'openAccess': openAccess})
-#df['date'] = pd.to_datetime(df['date'])
+df['date'] = pd.to_datetime(df['date'])
 
 
 #openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
