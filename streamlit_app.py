@@ -51,7 +51,7 @@ def bigask (fulltext):
         #print(dct)
     return df
 
-bigask(choice)
+df=bigask(choice)
 
 #df=pd.DataFrame.from_dict(rslt)        
 
