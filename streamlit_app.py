@@ -31,11 +31,12 @@ while cr_mrk != nxt_mrk:
     nxt_mrk = urlparse.unquote(rjson['nextCursorMark'])
     for rslt in rjson['resultList']['result']:
         dct['oa'].append(rslt['isOpenAccess']) if 'oa' in rslt.keys() else dct['oa'].append(0)
-        dct['author'].append(rslt['authorString']) if 'authorString' in rslt.keys() else 0
-        dct['date'].append(rslt['firstPublicationDate']) if 'firstPublicationDate' in rslt.keys() else dct['author'].append(0)
+        dct['author'].append(rslt['authorString']) if 'authorString' in rslt.keys() else dct['author'].append(0)
+        dct['date'].append(rslt['firstPublicationDate']) if 'firstPublicationDate' in rslt.keys() else dct['date'].append(0)
         dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
         dct['iso'].append(rslt['isoabbreviation']) if 'isoabbreviation' in rslt.keys() else dct['iso'].append(0)
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
+
         #print(dct)
 
 #df=pd.DataFrame.from_dict(rslt)        
