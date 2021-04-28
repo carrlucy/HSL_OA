@@ -13,12 +13,7 @@ import pandas as pd
 #@st.cache
 
 
-dct = {}
-for col in ['oa','author','year','title','iso','doi','id','cited']:
-    dct[col] = []
 
-cr_mrk= '' #current cursor mark
-nxt_mrk = '*' #next cursor mark
 
 #fulltext_list
 
@@ -28,6 +23,12 @@ choice = st.sidebar.selectbox("Full Text", menu)
 
 @st.cache(persist= True)
 def bigask (fulltext):
+    dct = {}
+    for col in ['oa','author','year','title','iso','doi','id','cited']:
+        dct[col] = []
+
+    cr_mrk= '' #current cursor mark
+    nxt_mrk = '*' #next cursor mark
     while cr_mrk != nxt_mrk:              
         url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
         query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2020-12-01 TO 2020-12-31]) AND (HAS_FT:'+fulltext+')'
