@@ -14,7 +14,7 @@ import pandas as pd
 
 
 dct = {}
-for col in ['oa','author','year','title','iso','doi']:
+for col in ['oa','author','year','title','iso','doi','id']:
     dct[col] = []
 
 cr_mrk= '' #current cursor mark
@@ -36,6 +36,7 @@ while cr_mrk != nxt_mrk:
         dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
         dct['iso'].append(rslt['isoabbreviation']) if 'isoabbreviation' in rslt.keys() else dct['iso'].append(0)
         dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
+        dct['id'].append(rslt['id']) if 'id' in rslt.keys() else dct['id'].append(0)
 
         #print(dct)
 #@st.cache
@@ -56,9 +57,9 @@ st.write(df)
 
 #df['year']=df['date'].dt.to_period('Y')
 #df['yearDate'] = df['year'].astype(str)
-df3 = df[['year','oa']].copy()
+#df3 = df[['year','oa']].copy()
 
-dfChart=df3.groupby(['year','oa'])['uid'].count()
+#dfChart=df3.groupby(['year','oa'])['id'].count()
 
 
 #st.write(dfChart)
@@ -67,10 +68,10 @@ dfChart=df3.groupby(['year','oa'])['uid'].count()
 
 
 
-valChart = alt.Chart((dfChart).mark_bar(opacity=1).encode(x='year', y='uid'))
+#valChart = alt.Chart((dfChart).mark_bar(opacity=1).encode(x='year', y='id'))
 
 ##b = alt.Chart(df4).mark_area(opacity=0.6).encode(x='name', y='salary')
 
-valLayer = alt.Chart(df3).mark_bar().encode(x='year',y='count(oa)',color='oa')#
+valLayer = alt.Chart(df).mark_bar().encode(x='year',y='count(oa)',color='oa')#
 
 st.altair_chart(valLayer, use_container_width=True)
