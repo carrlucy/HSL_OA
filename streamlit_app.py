@@ -28,7 +28,7 @@ def bigask ():
     nxt_mrk = '*' #next cursor mark
     while cr_mrk != nxt_mrk:              
         url = 'https://www.ebi.ac.uk/europepmc/webservices/rest/search?'
-        query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2019-12-31 TO 2020-12-31])'
+        query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2014-12-31 TO 2020-12-31])'
         params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
         response = requests.get(url,params)
         rjson = response.json()
@@ -56,7 +56,7 @@ dfdata=bigask()
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
-citations = st.sidebar.slider('Number of citations', 0, 20, 1)
+citations = st.sidebar.slider('Number of citations', 0, 100, 1)
 dfdata = dfdata[dfdata['cited'] >= citations] 
 
 #dfdata
