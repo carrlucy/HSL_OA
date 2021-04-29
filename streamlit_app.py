@@ -21,7 +21,7 @@ import pandas as pd
 @st.cache(suppress_st_warning=True)
 def bigask ():
     dct = {}
-    for col in ['oa','author','year','title','doi','id','cited','journal']:
+    for col in ['oa','author','year','title','doi','id','cited']:
         dct[col] = []
 
     cr_mrk= '' #current cursor mark
@@ -32,7 +32,6 @@ def bigask ():
         params = {'query':query, 'resultType':'core', 'synonym':'TRUE','cursorMark':nxt_mrk,'pageSize':'1000','format':'json'}
         response = requests.get(url,params)
         rjson = response.json()
-        #print(rjson)
         cr_mrk = urlparse.unquote(rjson['request']['cursorMark'])
         nxt_mrk = urlparse.unquote(rjson['nextCursorMark'])
         for rslt in rjson['resultList']['result']:
