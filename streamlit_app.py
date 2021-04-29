@@ -18,7 +18,7 @@ import pandas as pd
 #fulltext_list
 
 
-@st.cache()
+@st.cache(suppress_st_warning=True)
 def bigask ():
     dct = {}
     for col in ['oa','author','year','title','doi','id','cited']:
