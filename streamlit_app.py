@@ -23,7 +23,7 @@ import pandas as pd
 @st.cache(suppress_st_warning=True)
 def bigask ():
     dct = {}
-    for col in ['oa','author','year','title','doi','id','cited']:
+    for col in ['oa','author','year','title','doi','id','cited','journal']:
         dct[col] = []
 
     cr_mrk= '' #current cursor mark
