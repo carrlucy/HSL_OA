@@ -44,7 +44,7 @@ def bigask ():
             dct['id'].append(rslt['id']) if 'id' in rslt.keys() else dct['id'].append(0)
             dct['oa'].append(rslt['isOpenAccess']) if 'isOpenAccess' in rslt.keys() else dct['oa'].append(0)
             dct['cited'].append(rslt['citedByCount']) if 'citedByCount' in rslt.keys() else dct['cited'].append(0)  
-            dct['journal'].append(rslt['journalInfo']['journal']['title']) if ['journalInfo']['journal']['title'] in rslt.keys() else dct['journal'].append(0)
+            dct['journal'].append(rslt['journalInfo']) if ['journalInfo'] in rslt.keys() else dct['journal'].append(0)
     df=pd.DataFrame.from_dict(dct, orient='columns')
         #print(dct)
     return df
