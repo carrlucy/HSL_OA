@@ -37,7 +37,7 @@ def bigask ():
         cr_mrk = urlparse.unquote(rjson['request']['cursorMark'])
         nxt_mrk = urlparse.unquote(rjson['nextCursorMark'])
         for rslt in rjson['resultList']['result']:
-            dct['Author'].append(rslt['authorString']) if 'authorString' in rslt.keys() else dct['author'].append(0)
+            dct['author'].append(rslt['authorString']) if 'authorString' in rslt.keys() else dct['author'].append(0)
             dct['year'].append(rslt['pubYear']) if 'pubYear' in rslt.keys() else dct['year'].append(0)
             dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
             dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
