@@ -86,12 +86,16 @@ st.write(dfdata)
 
 
 
-valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa')#
+valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)', y= 'row_count',color='oa')#
 
 st.altair_chart(valLayer, use_container_width=True)
 
 
 
-valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa, len)',color='oa')#
+valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)',color='oa')#
 
 st.altair_chart(valLayer, use_container_width=True)
+
+base = alt.Chart(df.reset_index()).encode(x='x')
+
+
