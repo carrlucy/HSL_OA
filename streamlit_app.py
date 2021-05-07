@@ -97,3 +97,8 @@ valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='o
 st.altair_chart(valLayer, use_container_width=True)
 
 
+base = alt.Chart(df.reset_index()).encode(x='year')
+alt.layer(
+    base.mark_line(color='blue').encode(y='count('oa'),
+    base.mark_line(color='red').encode(y='len(dfdata)')
+)
