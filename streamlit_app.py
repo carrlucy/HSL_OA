@@ -61,9 +61,6 @@ dfdata=bigask()
 #df=pd.DataFrame.from_dict(rslt)        
 
 form = st.form(key='data_filter')
-form.text_input(label='Enter some text')
-
-
 citations = form.slider('Number of citations', 0, 100, 1)
 dfdata = dfdata[dfdata['cited'] >= citations] 
 journal_unique = sorted(dfdata['journal'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
