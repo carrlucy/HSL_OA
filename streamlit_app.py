@@ -92,8 +92,8 @@ st.altair_chart(valLayer, use_container_width=True)
 
 
 
-valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', 'row_count',color='oa')#
-
+valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='oa')#
+valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='row_count', color='oa')#
 st.altair_chart(valLayer, use_container_width=True)
 
 
