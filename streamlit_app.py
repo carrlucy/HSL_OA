@@ -72,6 +72,7 @@ author_choice = form.text_input(label='Search by author')
 dfdata=dfdata[dfdata['author'].str.contains(author_choice)] # create a dataframe based on the selection made above
 submit_button = form.form_submit_button(label='Submit')
 #dfdata
+row_count=len(dfdata)
 st.write(dfdata)
 
         
@@ -91,6 +92,6 @@ st.altair_chart(valLayer, use_container_width=True)
 
 
 
-valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)',color='oa')#
-row_count=len(dfdata)
+valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', len(dfdata), color='oa')#
+
 st.altair_chart(valLayer, use_container_width=True)
