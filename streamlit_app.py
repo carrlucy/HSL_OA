@@ -47,7 +47,7 @@ def bigask ():
 #           dct['journal'].append(rslt['journalInfo']) if 'journalInfo' in rslt.keys() else dct['journal'].append(0)
 #            {'issue': '655', 'volume': '13', 'journalIssueId': 3043955, 'dateOfPublication': '2020 Oct', 'monthOfPublication': 10, 'yearOfPublication': 2020, 'printPublicationDate': '2020-10-01', 'journal': {'title': 'Science signaling', 'medlineAbbreviation': 'Sci Signal', 'isoabbreviation': 'Sci Signal', 'nlmid': '101465400', 'essn': '1937-9145', 'issn': '1945-0877'}
             dct['journal'].append(rslt['journalInfo']['journal']['title']) if 'journalInfo' in rslt.keys() else dct['journal'].append(0)
-df=pd.DataFrame.from_dict(dct, orient='columns')
+        df=pd.DataFrame.from_dict(dct, orient='columns')
         #print(dct)
     return df
 
