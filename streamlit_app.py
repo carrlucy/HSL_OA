@@ -66,8 +66,9 @@ dfdata = dfdata[dfdata['cited'] >= citations]
 #journal_unique = sorted(dfdata['journal'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 #journal_choice = form.selectbox('Journal:', journal_unique) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 #dfdata=dfdata[dfdata['journal'].str.contains(journal_choice)] # create a dataframe based on the selection made above
-author_unique = sorted(dfdata['author'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
-author_choice = form.selectbox('Author:', author_unique) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+#author_unique = sorted(dfdata['author'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
+#author_choice = form.selectbox('Author:', author_unique) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+author_choice = form.text_input(label='Search by author')
 dfdata=dfdata[dfdata['author'].str.contains(author_choice)] # create a dataframe based on the selection made above
 submit_button = form.form_submit_button(label='Submit')
 #dfdata
