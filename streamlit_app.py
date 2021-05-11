@@ -2,7 +2,6 @@ import math
 import streamlit as st
 import numpy as np
 import json
-import rdflib
 import altair as alt
 from urllib.request import urlopen
 #from xml.etree.ElementTree import parse
