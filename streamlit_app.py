@@ -98,3 +98,11 @@ st.altair_chart(valLayer, use_container_width=True)
 
 gb = GridOptionsBuilder.from_dataframe(dfdata)
 go = gb.build()
+ag = AgGrid(
+    dfdata, 
+    gridOptions=go, 
+    height=400, 
+    fit_columns_on_grid_load=True, 
+    key='an_unique_key_xZs151',
+)
+
