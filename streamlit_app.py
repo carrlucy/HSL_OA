@@ -11,6 +11,7 @@ import urllib.parse as urlparse
 import requests
 import pandas as pd
 #@st.cache
+from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode, GridOptionsBuilder
 
 """
 # Welcome to the Open Data EuropePMC API Dashboard
@@ -96,3 +97,12 @@ valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='o
 
 st.altair_chart(valLayer, use_container_width=True)
 
+
+st.dataframe(dfdata)
+
+st.subheader("AG Grids")
+c1 = st.beta_columns(2)
+with c1:
+    grid_return1 = AgGrid(dfdata, key='grid1', editable=False)
+    st.text("Grid 1 Return")
+    st.write(grid_return1['data'])
