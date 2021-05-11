@@ -101,8 +101,7 @@ ag = AgGrid(
     dfdata, 
     height=400, 
     fit_columns_on_grid_load=True, 
-    key='id',
-    reload_data=reload_data
+    key='id'
 )
 
 
