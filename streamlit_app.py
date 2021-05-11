@@ -96,13 +96,5 @@ valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='o
 
 st.altair_chart(valLayer, use_container_width=True)
 
-ag = AgGrid(
-    dfdata, 
-    height=400, 
-    fit_columns_on_grid_load=True, 
-    key='id'
-)
-
-
-st.subheader("Returned Data")
-st.dataframe(ag['data'])
+gb = GridOptionsBuilder.from_dataframe(dfdata)
+go = gb.build()
