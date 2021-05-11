@@ -73,7 +73,6 @@ author_choice = form.text_input(label='Search by author')
 dfdata=dfdata[dfdata['author'].str.contains(author_choice)] # create a dataframe based on the selection made above
 submit_button = form.form_submit_button(label='Submit')
 #dfdata
-row_count=len(dfdata)
 st.write(dfdata)
 
         
