@@ -4,3 +4,4 @@ streamlit
 numpy
 rdflib
 altair
+streamlit-aggrid
