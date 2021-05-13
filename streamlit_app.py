@@ -97,7 +97,7 @@ valLayer2 = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='
 valLayer3 = alt.Chart(dfdata).mark_line().encode(x='year',y='len(id)', color='oa')#
 
 st.write((valLayer2 + valLayer3).resolve_scale(y='independent'))
-st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent'))
+st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
 
 
 #st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
