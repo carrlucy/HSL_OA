@@ -96,7 +96,10 @@ Layered Chart with total overlay
 valLayer2 = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='oa')#
 valLayer3 = alt.Chart(dfdata).mark_line().encode(x='year',y='len(id)', color='oa')#
 
-st.altair_chart((valLayer2 + valLayer3).properties(width=650,height=400))
+st.write((valLayer2 + valLayer3).resolve_scale(y='independent'))
+st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent'))
+
+
 #st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
 
 #st.altair_chart(valLayer2, use_container_width=True)
