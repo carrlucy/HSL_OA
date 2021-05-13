@@ -89,11 +89,15 @@ valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa'
 
 st.altair_chart(valLayer, use_container_width=True)
 
+'''
+Layered Chart with total overlay
+'''
 
+valLayer2 = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='oa')#
+valLayer3 = alt.Chart(dfdata).mark_line().encode(x='year',y='count(dfdata)', color='oa')#
+st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
 
-valLayer = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='oa')#
-
-st.altair_chart(valLayer, use_container_width=True)
+st.altair_chart(valLayer2, use_container_width=True)
 
 gb = GridOptionsBuilder.from_dataframe(dfdata)
 go = gb.build()
