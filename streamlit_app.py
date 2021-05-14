@@ -93,9 +93,10 @@ st.altair_chart(valLayer, use_container_width=True)
 Layered Chart with total overlay
 '''
 
+dfdata2=d
 
 base = alt.Chart(dfdata).encode(alt.X('year'))
-oa = base.mark_line().encode(alt.Y('count(oa)'))
+oa = base.mark_line().encode(alt.Y('count(id)'))
 #tots = base.mark_line().encode(alt.Y('dfdata.shape[0]'))
 
 st.write((oa).resolve_scale(y='independent'))
