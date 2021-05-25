@@ -56,7 +56,8 @@ dfdata=bigask()
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
-citations = st.sidebar.slider('Number of citations', 0, 100, 1)
+#citations = st.sidebar.slider('Number of citations', 0, 100, 1)
+citations = 0
 dfdata = dfdata[dfdata['cited'] >= citations] 
 
 #dfdata
