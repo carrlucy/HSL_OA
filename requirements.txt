@@ -5,6 +5,5 @@ numpy
 altair
 streamlit-aggrid
 pandas_profiling
-streamlit.components.v1
 streamlit_pandas_profiling
 sweetviz
