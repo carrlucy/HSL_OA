@@ -91,18 +91,7 @@ def st_display_sweetviz(report_html,width=1000,height=500):
 
     
 def main():
-	"""A Simple EDA"""
-
-	menu = ["Pandas Profile","Sweetviz"]
-	choice = st.selectbox("Choose an EDA report type",menu)
-
-	if choice == "Pandas Profile":
-		st.subheader("Automated EDA with Pandas Profile")
-		profile = ProfileReport(dfdata)
-		st_profile_report(profile)
-
-	elif choice == "Sweetviz":
-		st.subheader("Automated EDA with Sweetviz")
+	st.subheader("Automated EDA with Sweetviz")
 		if st.button("Generate Sweetviz Report"):
 			# Normal Workflow
 			report = sv.analyze(dfdata)
