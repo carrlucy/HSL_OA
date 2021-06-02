@@ -2,5 +2,5 @@ pydeck
 pandas
 streamlit
 numpy
-rdflib
 altair
+sweetviz
