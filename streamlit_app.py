@@ -9,16 +9,16 @@ import urllib
 import urllib.parse as urlparse
 import requests
 import pandas as pd
-import pandas_profiling
+#import pandas_profiling
 #@st.cache
 
 
 import codecs
-from pandas_profiling import ProfileReport 
+#from pandas_profiling import ProfileReport 
 
 # Components Pkgs
 import streamlit.components.v1 as components
-from streamlit_pandas_profiling import st_profile_report
+#from streamlit_pandas_profiling import st_profile_report
 
 # Custom Component Fxn
 import sweetviz as sv 
