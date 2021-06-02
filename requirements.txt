@@ -4,3 +4,8 @@ streamlit
 numpy
 altair
 streamlit-aggrid
+pandas_profiling
+codecs
+streamlit.components.v1
+streamlit_pandas_profiling
+sweetviz
