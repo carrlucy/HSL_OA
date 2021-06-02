@@ -92,11 +92,11 @@ def st_display_sweetviz(report_html,width=1000,height=500):
     
 def main():
 	st.subheader("Automated EDA with Sweetviz")
-		if st.button("Generate Sweetviz Report"):
+	st.button("Generate Sweetviz Report"):
 			# Normal Workflow
-			report = sv.analyze(dfdata)
-			report.show_html()
-			st_display_sweetviz("SWEETVIZ_REPORT.html")
+		report = sv.analyze(dfdata)
+		report.show_html()
+		st_display_sweetviz("SWEETVIZ_REPORT.html")
 
 st.subheader('Streamlit makes interactive widgets with minimal code')
     
