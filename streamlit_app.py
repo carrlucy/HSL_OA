@@ -9,21 +9,30 @@ import urllib
 import urllib.parse as urlparse
 import requests
 import pandas as pd
+import pandas_profiling
 #@st.cache
-from st_aggrid import AgGrid, DataReturnMode, GridUpdateMode, GridOptionsBuilder
-
-"""
-# Welcome to the Open Data EuropePMC API Dashboard
-"""
 
 
-#fulltext_list
+import codecs
+from pandas_profiling import ProfileReport 
+
+# Components Pkgs
+import streamlit.components.v1 as components
+from streamlit_pandas_profiling import st_profile_report
+
+# Custom Component Fxn
+import sweetviz as sv 
+
+st.header('Open Data Dashboard from EuropePMC ')
+st.subheader('Exploratory Data Analysis with Streamlit')
+
+st.markdown('In this app we are using content pulled from the [EuropePMC](https://europepmc.org/RestfulWebService) with a small Python script, gratefully edited by Dr. Maaly Nassar of the EuropePMC publication team, and served via [Streamlit](https://streamlit.io)')
 
 
 @st.cache(suppress_st_warning=True)
 def bigask ():
     dct = {}
-    for col in ['oa','author','year','title','doi','id','cited','journal']:
+    for col in ['oa','author','year','title','doi','id','cited','aff']:
         dct[col] = []
 
     cr_mrk= '' #current cursor mark
@@ -43,41 +52,28 @@ def bigask ():
             dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
             dct['id'].append(rslt['id']) if 'id' in rslt.keys() else dct['id'].append(0)
             dct['oa'].append(rslt['isOpenAccess']) if 'isOpenAccess' in rslt.keys() else dct['oa'].append(0)
-            dct['cited'].append(rslt['citedByCount']) if 'citedByCount' in rslt.keys() else dct['cited'].append(0)  
-#           dct['journal'].append(rslt['journalInfo']) if 'journalInfo' in rslt.keys() else dct['journal'].append(0)
-#            {'issue': '655', 'volume': '13', 'journalIssueId': 3043955, 'dateOfPublication': '2020 Oct', 'monthOfPublication': 10, 'yearOfPublication': 2020, 'printPublicationDate': '2020-10-01', 'journal': {'title': 'Science signaling', 'medlineAbbreviation': 'Sci Signal', 'isoabbreviation': 'Sci Signal', 'nlmid': '101465400', 'essn': '1937-9145', 'issn': '1945-0877'}
-            dct['journal'].append(rslt['journalInfo']['journal']['title']) if 'journalInfo' in rslt.keys() else dct['journal'].append(0)
-        df=pd.DataFrame.from_dict(dct, orient='columns')
-        #print(dct)
+            dct['cited'].append(rslt['citedByCount']) if 'citedByCount' in rslt.keys() else dct['cited'].append(0) 
+            dct['aff'].append(rslt['affiliation']) if 'affiliation' in rslt.keys() else dct['aff'].append(0) 
+    df=pd.DataFrame.from_dict(dct, orient='columns')
     return df
 
+
+    
 
 #menu = ["Y", "N"]
 #st.sidebar.subheader("Select Option")
 #choice = st.sidebar.selectbox("Full Text", menu)
 
 dfdata=bigask()
+#dfdata2=bigask2()
+
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
 
-form = st.form(key='data_filter')
-citations = form.slider('Number of citations', 0, 100, 1)
-dfdata = dfdata[dfdata['cited'] >= citations] 
-#journal_unique = sorted(dfdata['journal'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
-#journal_choice = form.selectbox('Journal:', journal_unique) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
-#dfdata=dfdata[dfdata['journal'].str.contains(journal_choice)] # create a dataframe based on the selection made above
-#author_unique = sorted(dfdata['author'].drop_duplicates()) # select all of the journals from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
-#author_choice = form.selectbox('Author:', author_unique) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
-author_choice = form.text_input(label='Search by author')
-dfdata=dfdata[dfdata['author'].str.contains(author_choice)] # create a dataframe based on the selection made above
-submit_button = form.form_submit_button(label='Submit')
-#dfdata
-st.write(dfdata)
-
-        
 
 
-#openFilter = sorted(df['openAccess'].drop_duplicates()) # select the open access values 
+
+#openFilter = sorted(df['aff'].drop_duplicates()) # select the open access values 
 #open_Filter = st.sidebar.selectbox('Open Access?', openFilter) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 #df2=df[df['openAccess'].str.contains(open_Filter)] # create a dataframe filtered below
 #st.write(df2.sort_values(by='date'))
@@ -85,41 +81,50 @@ st.write(dfdata)
 
 
 
-valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa')#
 
+
+def st_display_sweetviz(report_html,width=1000,height=500):
+	report_file = codecs.open(report_html,'r')
+	page = report_file.read()
+	components.html(page,width=width,height=height,scrolling=True)
+
+
+    
+def main():
+	"""A Simple EDA"""
+
+	menu = ["Pandas Profile","Sweetviz"]
+	choice = st.selectbox("Choose an EDA report type",menu)
+
+	if choice == "Pandas Profile":
+		st.subheader("Automated EDA with Pandas Profile")
+		profile = ProfileReport(dfdata)
+		st_profile_report(profile)
+
+	elif choice == "Sweetviz":
+		st.subheader("Automated EDA with Sweetviz")
+		if st.button("Generate Sweetviz Report"):
+			# Normal Workflow
+			report = sv.analyze(dfdata)
+			report.show_html()
+			st_display_sweetviz("SWEETVIZ_REPORT.html")
+
+st.subheader('Streamlit makes interactive widgets with minimal code')
+    
+'''This is a simple slider built in streamlit that interacts with the imported data and provides the user with a textual and graphical output'''
+#citations = st.slider('Number of citations', 0, 100, 1)
+citations = 0
+dfdata = dfdata[dfdata['cited'] >= citations] 
+dfdata['doi'] = dfdata['doi'].astype(str)  #pandas was calling this a mixed type column and it borked sweetviz
+dfdata['aff'] = dfdata['aff'].astype(str)  #pandas was calling this a mixed type column and it borked sweetviz
+#dfdata
+dfdata.to_csv('opendata.csv', index=False)
+st.write(dfdata)
+        
+valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa')
 st.altair_chart(valLayer, use_container_width=True)
+st.subheader('EDA reports provide a simple & low-code overview of data')
+'''The questions one may ask are reasonably constrained by the data one has access to. Exploratory data analysis (EDA), aims to help establish the type and quality of the data to be processed and in our examples applies univariate graphical and textual reports to give data sets a first review.  In this case these reports are generated with only a few lines of code, and are thus especially useful for programmers to deliver to stakeholders early in the process'''
 
-'''
-Layered Chart with total overlay
-'''
-
-dfdata2=d
-
-base = alt.Chart(dfdata).encode(alt.X('year'))
-oa = base.mark_line().encode(alt.Y('count(id)'))
-#tots = base.mark_line().encode(alt.Y('dfdata.shape[0]'))
-
-st.write((oa).resolve_scale(y='independent'))
-st.altair_chart((oa).resolve_scale(y='independent'))
-
-#valLayer2 = alt.Chart(dfdata).mark_line().encode(x='year',y='count(oa)', color='oa')#
-#valLayer3 = alt.Chart(dfdata).mark_line().encode(x='year',y='len(oa)', color='')#
-
-#st.write((valLayer2 + valLayer3).resolve_scale(y='independent'))
-#st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
-
-
-#st.altair_chart((valLayer2 + valLayer3).resolve_scale(y='independent').properties(width=650,height=400))
-
-#st.altair_chart(valLayer2, use_container_width=True)
-
-gb = GridOptionsBuilder.from_dataframe(dfdata)
-go = gb.build()
-ag = AgGrid(
-    dfdata, 
-    gridOptions=go, 
-    height=400, 
-    fit_columns_on_grid_load=True, 
-    key='an_unique_key_xZs151',
-)
-
+if __name__ == '__main__':
+	main()
