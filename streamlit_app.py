@@ -98,7 +98,7 @@ def main():
 
 st.subheader('Streamlit makes interactive widgets with minimal code')
     
-'''This is a simple slider built in streamlit that interacts with the imported data and provides the user with a textual and graphical output'''
+'''This is a simple slider built in Streamlit that interacts with the imported data and provides the user with a textual and graphical output.'''
 #citations = st.slider('Number of citations', 0, 100, 1)
 citations = 0
 dfdata = dfdata[dfdata['cited'] >= citations] 
