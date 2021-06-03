@@ -111,7 +111,7 @@ st.write(dfdata)
 valLayer = alt.Chart(dfdata).mark_bar().encode(x='year',y='count(oa)',color='oa')
 st.altair_chart(valLayer, use_container_width=True)
 st.subheader('EDA reports provide a simple & low-code overview of data')
-'''The questions one may ask are reasonably constrained by the data one has access to. Exploratory data analysis (EDA) aims to help establish the type and quality of the data to be processed, and in our example applies univariate graphical and textual reports to give data sets a first review. These reports are generated with only a few lines of code, and are thus especially useful for programmers to deliver to stakeholders early in the process.'''
+'''The questions one may ask are reasonably constrained by the data one has access to. Exploratory data analysis (EDA) aims to help establish the type and quality of the data to be processed, and in our example applies univariate graphical and textual reports to give data sets a first review. [Sweetviz](https://pypi.org/project/sweetviz/)and other EDA tools generate a report with only a few lines of code, and are thus especially useful for programmers to deliver to stakeholders early in the process.'''
 
 if __name__ == '__main__':
 	main()
