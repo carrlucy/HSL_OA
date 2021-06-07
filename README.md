@@ -1,4 +1,9 @@
-# HSL_OA
+
+![UVA HSL logo](https://user-images.githubusercontent.com/61550284/121027476-fd048e00-c774-11eb-963c-320792136746.jpg)
+
+This is a project by UVA Claude Moore Health Sciences Library 
+
+
 Studying the open access publication patterns of UVA Health faculty and staff
 Getting started is simple
 Set up a github repo - you're certainly welcome to fork ours here https://github.com/carrlucy/HSL_OA
