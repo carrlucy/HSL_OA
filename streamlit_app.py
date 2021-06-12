@@ -89,7 +89,7 @@ def st_display_sweetviz(report_html,width=1000,height=500):
 	components.html(page,width=width,height=height,scrolling=True)
 
 
-@st.cache(suppress_st_warning=True)    
+  
 def main():
 	if st.button("Generate Sweetviz Report"):
 		report = sv.analyze(dfdata)
