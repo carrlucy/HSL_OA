@@ -82,14 +82,14 @@ dfdata=bigask()
 
 
 
-
+@st.cache(suppress_st_warning=True)
 def st_display_sweetviz(report_html,width=1000,height=500):
 	report_file = codecs.open(report_html,'r')
 	page = report_file.read()
 	components.html(page,width=width,height=height,scrolling=True)
 
 
-    
+@st.cache(suppress_st_warning=True)    
 def main():
 	if st.button("Generate Sweetviz Report"):
 		report = sv.analyze(dfdata)
