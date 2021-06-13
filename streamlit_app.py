@@ -50,7 +50,7 @@ def bigask ():
             dct['year'].append(rslt['pubYear']) if 'pubYear' in rslt.keys() else dct['year'].append(0)
             dct['title'].append(rslt['title']) if 'title' in rslt.keys() else dct['title'].append(0)
             dct['doi'].append(rslt['doi']) if 'doi' in rslt.keys() else dct['doi'].append(0)
-            dct['id'].append(rslt['id']) if 'id' in rslt.keys() else dct['id'].append(0)
+#           dct['id'].append(rslt['id']) if 'id' in rslt.keys() else dct['id'].append(0)
             dct['oa'].append(rslt['isOpenAccess']) if 'isOpenAccess' in rslt.keys() else dct['oa'].append(0)
             dct['cited'].append(rslt['citedByCount']) if 'citedByCount' in rslt.keys() else dct['cited'].append(0) 
             dct['aff'].append(rslt['affiliation']) if 'affiliation' in rslt.keys() else dct['aff'].append(0) 
