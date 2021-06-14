@@ -32,7 +32,7 @@ st.markdown('In this app, we are using content pulled from [EuropePMC](https://e
 @st.cache(suppress_st_warning=True)
 def bigask ():
     dct = {}
-    for col in ['oa','author','year','title','doi','id','cited','aff']:
+    for col in ['oa','author','year','title','doi','cited','aff']:
         dct[col] = []
 
     cr_mrk= '' #current cursor mark
