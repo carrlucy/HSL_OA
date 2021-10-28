@@ -14,6 +14,7 @@ import urllib
 import urllib.parse as urlparse
 import requests
 import pandas as pd
+from fuzzywuzzy import fuzz
 #import pandas_profiling
 #@st.cache
 
