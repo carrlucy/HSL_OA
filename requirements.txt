@@ -4,3 +4,4 @@ streamlit
 numpy
 altair
 sweetviz
+fuzzywuzzy
