@@ -1,7 +1,7 @@
 #this is the entire app - rendered by streamlit at https://share.streamlit.io/carrlucy/hsl_oa/main
 #if you're interested editing this tool for your own uses look at the "bigask function" and find the 
 #line that reads query = '(AFF:"University of Virginia") AND (FIRST_PDATE:[2017-01-01 TO 2020-12-31])'
-#and then edit the AFF (institutional affliation) to suit your needs
+#and then edit the AFF (institutional affliation) to suit your needs do some typing
 
 import math
 import streamlit as st
