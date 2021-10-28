@@ -130,4 +130,5 @@ st.subheader('EDA reports provide a simple & low-code overview of data')
 
 if __name__ == '__main__':
 	main()
+st.write("This is testing the fuzzywuzzy package to begin aggregating departments")
 st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10))
