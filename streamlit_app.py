@@ -130,4 +130,4 @@ st.subheader('EDA reports provide a simple & low-code overview of data')
 
 if __name__ == '__main__':
 	main()
-st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10, score_cutoff=80)))
+st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10, score_cutoff=80))
