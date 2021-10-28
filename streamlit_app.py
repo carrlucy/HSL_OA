@@ -16,6 +16,7 @@ import requests
 import pandas as pd
 import fuzzywuzzy
 from fuzzywuzzy import fuzz
+from fuzzywuzzy import process
 #import pandas_profiling
 #@st.cache
 
@@ -34,7 +35,14 @@ st.header('Open Data Dashboard using EuropePMC Publication Data')
 st.subheader('Exploratory Data Analysis with Streamlit')
 
 st.markdown('In this app, we are using content pulled from [EuropePMC](https://europepmc.org/RestfulWebService) with a simple Python script, gratefully edited by Dr. Maaly Nassar of the EuropePMC publication team, and served via [Streamlit](https://streamlit.io)')
-user_input = st.sidebar.text_input("Departmental Filter", )
+
+with st.sidebar.form(key ='Form1'):
+	user_input = st.text_input("Departmental Filter", )
+	submitted1 = st.form_submit_button(label = 'Filter')
+
+
+
+
 
 @st.cache(suppress_st_warning=True)
 def bigask ():
@@ -65,7 +73,6 @@ def bigask ():
     return df
 
 
-    
 
 #menu = ["Y", "N"]
 #st.sidebar.subheader("Select Option")
@@ -73,6 +80,7 @@ def bigask ():
 
 dfdata=bigask()
 #dfdata2=bigask2()
+process.extract(user_input, dfdata['aff'].to_list(), limit = 10)
 
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
