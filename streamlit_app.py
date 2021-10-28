@@ -80,7 +80,7 @@ def bigask ():
 
 dfdata=bigask()
 #dfdata2=bigask2()
-process.extract(user_input, dfdata['aff'].to_list(), limit = 10)
+st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10))
 
 #dfdata= dfdata[dfdata['oa'] == choice] 
 #df=pd.DataFrame.from_dict(rslt)        
