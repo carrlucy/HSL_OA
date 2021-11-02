@@ -36,9 +36,9 @@ st.subheader('Exploratory Data Analysis with Streamlit')
 
 st.markdown('In this app, we are using content pulled from [EuropePMC](https://europepmc.org/RestfulWebService) with a simple Python script, gratefully edited by Dr. Maaly Nassar of the EuropePMC publication team, and served via [Streamlit](https://streamlit.io)')
 
-with st.sidebar.form(key ='Form1'):
-	user_input = st.text_input("Departmental Filter", )
-	submitted1 = st.form_submit_button(label = 'Filter')
+#with st.sidebar.form(key ='Form1'):
+#	user_input = st.text_input("Departmental Filter", )
+#	submitted1 = st.form_submit_button(label = 'Filter')
 
 
 
@@ -131,4 +131,4 @@ st.subheader('EDA reports provide a simple & low-code overview of data')
 if __name__ == '__main__':
 	main()
 st.write("This is testing the fuzzywuzzy package to begin aggregating departments")
-st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10))
+#st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10))
