@@ -128,7 +128,7 @@ st.altair_chart(valLayer, use_container_width=True)
 st.subheader('EDA reports provide a simple & low-code overview of data')
 '''Exploratory data analysis (EDA) provides a quick overview of a data set, helping to establish the type and quality of the data to be processed. In our example, [Sweetviz](https://pypi.org/project/sweetviz/) applies univariate graphical and textual reports to give data sets a first review. EDA tools can generate a report with only a few lines of code, and are thus especially useful for programmers to deliver to stakeholders early in the process.'''
 
-#if __name__ == '__main__':
+if __name__ == '__main__':
 	main()
-#st.write("This is testing the fuzzywuzzy package to begin aggregating departments")
+st.write("This is testing the fuzzywuzzy package to begin aggregating departments")
 #st.write(process.extract(user_input, dfdata['aff'].to_list(), limit = 10))
